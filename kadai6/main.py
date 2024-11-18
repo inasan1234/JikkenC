@@ -160,10 +160,8 @@ if __name__ == '__main__':
     if (convert(f, datalist) == -1):
         f.close
         os.remove("output.txt")
-        exit
     else:
         f.close
-        exit
     
 
 
