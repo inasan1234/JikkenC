@@ -329,7 +329,7 @@ cJCextA <= '1' when qJCintA = '0' else
            '1' when (qJCintB = "10" and irout(7 downto 4) = "1101") else -- SETIXH SETIXL LDIA LDIB
            '1' when (qJCintB = "10" and irout(7 downto 4) = "0110") else -- JP
            '1' when (qJCintB = "10" and irout(7 downto 4) = "0101" and ZeroF = '1') else -- JPZ(Z=1)
-           '1' when (qJCintB = "10" and irout(7 dwonto 4) = "0100" and CarryF = '1') else -- JPC(C=1)
+           '1' when (qJCintB = "10" and irout(7 downto 4) = "0100" and CarryF = '1') else -- JPC(C=1)
            '1' when (qJCintC = "11" and irout(7 downto 4) = "1110") else -- LDDA LDDB
            '1' when (qJCintD = '1')  else
            '1' when (qJCintE = "10") else
@@ -345,7 +345,7 @@ cJCextC <= '1' when (qJCintB = "10" and irout(7 downto 2) = "111100") else -- ST
 cJCextD <= '1' when (qJCintB = "10" and irout(7 downto 2) = "111101") else -- STDB
            '0';
 
-cJCextE <= '1' when (qJCextB = "10" and irout(7 downto 3) = "11111") else -- STDI
+cJCextE <= '1' when (qJCintB = "10" and irout(7 downto 3) = "11111") else -- STDI
            '0';
 
 cs1     <= '1' when qJCintB = "11"  else

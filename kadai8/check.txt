@@ -1,0 +1,11 @@
+PROGRAM START
+    LDIA    #01
+    LDIB    #01
+    ADDA
+    LDIA    #FF
+    LDIB    #01
+    ADDA
+    LDIA    #01
+    ADDA
+    RET
+    END

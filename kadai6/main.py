@@ -15,7 +15,7 @@ mapping = {
     'DC':     'set',
     'RET':    'ret',
     'END':    'end',
-    'SETIX':  'setix'
+    'SETIX':  'six'
 }
 
 def convert(f, datalist):
@@ -59,9 +59,8 @@ def convert(f, datalist):
                         return -1
                 elif (command.startswith(('end', 'ret'))):
                     continue
-                elif (command.startswith('setix')):
-                    result = result + format(index, '04x') + '\t'
-                    index += 1
+                elif (command.startswith('six')):
+                    pass
                 else:
                     result = result + format(index, '04x') + '\t'
                     index += 1
@@ -96,24 +95,26 @@ def convert(f, datalist):
                 else:
                     return -1
 
-            if (command.startswith('setix')): # SETIX命令
+            if (command.startswith('six')): # SETIX命令
                 id = data_arg[2]
-                if (id.startswith('#') and int(id[1:])<65536):
+                if (id.startswith('#') and int(id[1:], 16)<65536):
                     id_4 = id[1:]
                     # SETIXH
                     result = result + format(index, '04x') + '\t'
                     index += 1
-                    result = result + 'd0'
+                    result = result + 'd0' + '\n'
                     result = result + format(index, '04x') + '\t'
                     index += 1
                     result = result + id_4[0:2] + '\n'
                     # SETIXL
                     result = result + format(index, '04x') + '\t'
                     index += 1
-                    result = result + 'd1'
+                    result = result + 'd1' + '\n'
                     result = result + format(index, '04x') + '\t'
                     index += 1
                     result = result + id_4[2:4] + '\n'
+                else:
+                    return -1
 
     while label_stack:
         label = label_stack.pop()
