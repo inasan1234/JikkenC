@@ -412,8 +412,8 @@ loadFC    <= '1' when (qJCintD = '1' and irout(7 downto 1) = "1000000") else -- 
              '1' when (qJCintD = '1' and irout(7 downto 0) = "10000101") else --INCA
              '1' when (qJCintD = '1' and irout(7 downto 0) = "10000110") else --DECA
              '1' when (qJCintD = '1' and irout(7 downto 1) = "1001000") else -- ADDB SUBB
-             '1' when (qJCintD = '1' and irout(7 downto 0) = "10010101") else --INCB
-             '1' when (qJCintD = '1' and irout(7 downto 0) = "10010110") else --DECB
+             '1' when (qJCintD = '1' and irout(7 downto 0) = "10011001") else --INCB
+             '1' when (qJCintD = '1' and irout(7 downto 0) = "10011010") else --DECB
              '0';
 
 loadhMB   <= '1' when (qJCintF = "011" and irout(7 downto 5) = "011") else -- JP

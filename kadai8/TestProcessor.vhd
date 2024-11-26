@@ -56,7 +56,7 @@ architecture behavior of TestProcessor is
 
   constant M_MAX : integer := 16#10000#;  -- max size
 
-  file IMin     : std.textio.text is in "check_out.txt";         -- VHDL'87
+  file IMin     : std.textio.text is in "output.txt";         -- VHDL'87
   file Tout     : std.textio.text is out "TestData.out";  -- VHDL'87
 
   type type_Signals is array(0 to 5) of string(1 to 27);
