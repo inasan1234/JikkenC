@@ -1,0 +1,111 @@
+-- Copyright (C) 2020  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and any partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details, at
+-- https://fpgasoftware.intel.com/eula.
+
+-- Quartus Prime generated Memory Initialization File (.mif)
+
+WIDTH=8;
+DEPTH=1024;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+	000  :   28;
+	001  :   02;
+	002  :   24;
+	003  :   05;
+	004  :   22;
+	005  :   80;
+	006  :   21;
+	007  :   01;
+	008  :   40;
+	009  :   14;
+	[00A..00B]  :   CB;
+	00C  :   90;
+	00D  :   00;
+	00E  :   10;
+	00F  :   00;
+	010  :   22;
+	011  :   FF;
+	012  :   21;
+	013  :   FF;
+	014  :   18;
+	015  :   22;
+	016  :   80;
+	017  :   21;
+	018  :   02;
+	019  :   40;
+	01A  :   22;
+	01B  :   FF;
+	01C  :   21;
+	01D  :   FE;
+	01E  :   18;
+	01F  :   22;
+	020  :   80;
+	021  :   21;
+	022  :   03;
+	023  :   40;
+	024  :   00;
+	025  :   80;
+	[026..027]  :   00;
+	028  :   80;
+	029  :   00;
+	02A  :   60;
+	[02B..02F]  :   00;
+	030  :   21;
+	031  :   FC;
+	032  :   18;
+	033  :   21;
+	034  :   FE;
+	035  :   40;
+	036  :   80;
+	037  :   00;
+	038  :   60;
+	[039..03F]  :   00;
+	040  :   21;
+	041  :   FC;
+	042  :   18;
+	043  :   21;
+	044  :   FF;
+	045  :   40;
+	046  :   80;
+	047  :   00;
+	048  :   60;
+	[049..04F]  :   00;
+	050  :   21;
+	051  :   FC;
+	052  :   18;
+	053  :   21;
+	054  :   FE;
+	055  :   40;
+	056  :   21;
+	057  :   FF;
+	058  :   40;
+	059  :   80;
+	05A  :   00;
+	05B  :   60;
+	[05C..05F]  :   00;
+	060  :   21;
+	061  :   FB;
+	062  :   18;
+	063  :   CA;
+	064  :   CB;
+	065  :   90;
+	[066..067]  :   00;
+	068  :   80;
+	069  :   00;
+	06A  :   62;
+	[06B..3FF]  :   00;
+END;

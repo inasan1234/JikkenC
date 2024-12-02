@@ -1,0 +1,4770 @@
+|CPUCircuit
+HEX0[0] <= DecSeg:DecHEX0.seg[0]
+HEX0[1] <= DecSeg:DecHEX0.seg[1]
+HEX0[2] <= DecSeg:DecHEX0.seg[2]
+HEX0[3] <= DecSeg:DecHEX0.seg[3]
+HEX0[4] <= DecSeg:DecHEX0.seg[4]
+HEX0[5] <= DecSeg:DecHEX0.seg[5]
+HEX0[6] <= DecSeg:DecHEX0.seg[6]
+HEX1[0] <= DecSeg:DecHEX1.seg[0]
+HEX1[1] <= DecSeg:DecHEX1.seg[1]
+HEX1[2] <= DecSeg:DecHEX1.seg[2]
+HEX1[3] <= DecSeg:DecHEX1.seg[3]
+HEX1[4] <= DecSeg:DecHEX1.seg[4]
+HEX1[5] <= DecSeg:DecHEX1.seg[5]
+HEX1[6] <= DecSeg:DecHEX1.seg[6]
+HEX2[0] <= DecSeg:DecHEX2.seg[0]
+HEX2[1] <= DecSeg:DecHEX2.seg[1]
+HEX2[2] <= DecSeg:DecHEX2.seg[2]
+HEX2[3] <= DecSeg:DecHEX2.seg[3]
+HEX2[4] <= DecSeg:DecHEX2.seg[4]
+HEX2[5] <= DecSeg:DecHEX2.seg[5]
+HEX2[6] <= DecSeg:DecHEX2.seg[6]
+HEX3[0] <= DecSeg:DecHEX3.seg[0]
+HEX3[1] <= DecSeg:DecHEX3.seg[1]
+HEX3[2] <= DecSeg:DecHEX3.seg[2]
+HEX3[3] <= DecSeg:DecHEX3.seg[3]
+HEX3[4] <= DecSeg:DecHEX3.seg[4]
+HEX3[5] <= DecSeg:DecHEX3.seg[5]
+HEX3[6] <= DecSeg:DecHEX3.seg[6]
+HEX4[0] <= DecSeg:DecHEX4.seg[0]
+HEX4[1] <= DecSeg:DecHEX4.seg[1]
+HEX4[2] <= DecSeg:DecHEX4.seg[2]
+HEX4[3] <= DecSeg:DecHEX4.seg[3]
+HEX4[4] <= DecSeg:DecHEX4.seg[4]
+HEX4[5] <= DecSeg:DecHEX4.seg[5]
+HEX4[6] <= DecSeg:DecHEX4.seg[6]
+HEX5[0] <= DecSeg:DecHEX5.seg[0]
+HEX5[1] <= DecSeg:DecHEX5.seg[1]
+HEX5[2] <= DecSeg:DecHEX5.seg[2]
+HEX5[3] <= DecSeg:DecHEX5.seg[3]
+HEX5[4] <= DecSeg:DecHEX5.seg[4]
+HEX5[5] <= DecSeg:DecHEX5.seg[5]
+HEX5[6] <= DecSeg:DecHEX5.seg[6]
+KEY[0] => KEYEnc4:keyenc.keyin[0]
+KEY[1] => KEYEnc4:keyenc.keyin[1]
+KEY[2] => KEYEnc4:keyenc.keyin[2]
+KEY[3] => KEYEnc4:keyenc.keyin[3]
+LEDR[0] <= TinyProcessor:Processor.dbgZeroF
+LEDR[1] <= TinyProcessor:Processor.dbgCarryF
+LEDR[2] <= <GND>
+LEDR[3] <= <GND>
+LEDR[4] <= <GND>
+LEDR[5] <= <GND>
+LEDR[6] <= <GND>
+LEDR[7] <= <GND>
+LEDR[8] <= <GND>
+LEDR[9] <= Clock50:CLK50.c50
+SW[0] => ccmux4x08:SelInput.c[0]
+SW[1] => ccmux4x08:SelInput.c[1]
+SW[2] => ccmux4x08:SelInput.c[2]
+SW[3] => ccmux4x08:SelInput.c[3]
+SW[4] => ccmux4x08:SelInput.c[4]
+SW[5] => ccmux4x08:SelInput.c[5]
+SW[6] => ccmux4x08:SelInput.c[6]
+SW[7] => ccmux4x08:SelInput.c[7]
+SW[8] => ccmux4x16:SelOutput.sel[0]
+SW[9] => ccmux4x16:SelOutput.sel[1]
+RESET_N => KEYEnc4:keyenc.reset
+RESET_N => Clock50:CLK50.reset
+RESET_N => ClockDelay:CLKD.reset
+RESET_N => TinyProcessor:Processor.reset
+CLOCK_50 => KEYEnc4:keyenc.clock
+CLOCK_50 => rom1p:rom.clock
+CLOCK_50 => ram1p:ram.clock
+CLOCK_50 => Clock50:CLK50.clock
+CLOCK_50 => ClockDelay:CLKD.clock
+CLOCK2_50 => ~NO_FANOUT~
+CLOCK3_50 => ~NO_FANOUT~
+CLOCK4_50 => ~NO_FANOUT~
+
+
+|CPUCircuit|TinyProcessor:Processor
+clock => DataPath:path.clock
+clock => Controler:ctrl.clock
+reset => DataPath:path.reset
+reset => Controler:ctrl.reset
+DataIn[0] => DataPath:path.DataIn[0]
+DataIn[1] => DataPath:path.DataIn[1]
+DataIn[2] => DataPath:path.DataIn[2]
+DataIn[3] => DataPath:path.DataIn[3]
+DataIn[4] => DataPath:path.DataIn[4]
+DataIn[5] => DataPath:path.DataIn[5]
+DataIn[6] => DataPath:path.DataIn[6]
+DataIn[7] => DataPath:path.DataIn[7]
+DataOut[0] <= DataPath:path.DataOut[0]
+DataOut[1] <= DataPath:path.DataOut[1]
+DataOut[2] <= DataPath:path.DataOut[2]
+DataOut[3] <= DataPath:path.DataOut[3]
+DataOut[4] <= DataPath:path.DataOut[4]
+DataOut[5] <= DataPath:path.DataOut[5]
+DataOut[6] <= DataPath:path.DataOut[6]
+DataOut[7] <= DataPath:path.DataOut[7]
+Address[0] <= DataPath:path.Address[0]
+Address[1] <= DataPath:path.Address[1]
+Address[2] <= DataPath:path.Address[2]
+Address[3] <= DataPath:path.Address[3]
+Address[4] <= DataPath:path.Address[4]
+Address[5] <= DataPath:path.Address[5]
+Address[6] <= DataPath:path.Address[6]
+Address[7] <= DataPath:path.Address[7]
+Address[8] <= DataPath:path.Address[8]
+Address[9] <= DataPath:path.Address[9]
+Address[10] <= DataPath:path.Address[10]
+Address[11] <= DataPath:path.Address[11]
+Address[12] <= DataPath:path.Address[12]
+Address[13] <= DataPath:path.Address[13]
+Address[14] <= DataPath:path.Address[14]
+Address[15] <= DataPath:path.Address[15]
+read <= Controler:ctrl.read
+write <= Controler:ctrl.write
+dbgIRout[0] <= DataPath:path.IRout[0]
+dbgIRout[1] <= DataPath:path.IRout[1]
+dbgIRout[2] <= DataPath:path.IRout[2]
+dbgIRout[3] <= DataPath:path.IRout[3]
+dbgIRout[4] <= DataPath:path.IRout[4]
+dbgIRout[5] <= DataPath:path.IRout[5]
+dbgIRout[6] <= DataPath:path.IRout[6]
+dbgIRout[7] <= DataPath:path.IRout[7]
+dbgZeroF <= DataPath:path.ZeroF
+dbgCarryF <= DataPath:path.CarryF
+dbgAout[0] <= DataPath:path.Aout[0]
+dbgAout[1] <= DataPath:path.Aout[1]
+dbgAout[2] <= DataPath:path.Aout[2]
+dbgAout[3] <= DataPath:path.Aout[3]
+dbgAout[4] <= DataPath:path.Aout[4]
+dbgAout[5] <= DataPath:path.Aout[5]
+dbgAout[6] <= DataPath:path.Aout[6]
+dbgAout[7] <= DataPath:path.Aout[7]
+dbgBout[0] <= DataPath:path.Bout[0]
+dbgBout[1] <= DataPath:path.Bout[1]
+dbgBout[2] <= DataPath:path.Bout[2]
+dbgBout[3] <= DataPath:path.Bout[3]
+dbgBout[4] <= DataPath:path.Bout[4]
+dbgBout[5] <= DataPath:path.Bout[5]
+dbgBout[6] <= DataPath:path.Bout[6]
+dbgBout[7] <= DataPath:path.Bout[7]
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path
+DataIn[0] => mux2x08:MuxDIn.b[0]
+DataIn[0] => Register16in2:MB.dH[0]
+DataIn[0] => Register16in2:MB.dL[0]
+DataIn[0] => Register16in2:IX.dH[0]
+DataIn[0] => Register16in2:IX.dL[0]
+DataIn[0] => Register08:IR.d[0]
+DataIn[1] => mux2x08:MuxDIn.b[1]
+DataIn[1] => Register16in2:MB.dH[1]
+DataIn[1] => Register16in2:MB.dL[1]
+DataIn[1] => Register16in2:IX.dH[1]
+DataIn[1] => Register16in2:IX.dL[1]
+DataIn[1] => Register08:IR.d[1]
+DataIn[2] => mux2x08:MuxDIn.b[2]
+DataIn[2] => Register16in2:MB.dH[2]
+DataIn[2] => Register16in2:MB.dL[2]
+DataIn[2] => Register16in2:IX.dH[2]
+DataIn[2] => Register16in2:IX.dL[2]
+DataIn[2] => Register08:IR.d[2]
+DataIn[3] => mux2x08:MuxDIn.b[3]
+DataIn[3] => Register16in2:MB.dH[3]
+DataIn[3] => Register16in2:MB.dL[3]
+DataIn[3] => Register16in2:IX.dH[3]
+DataIn[3] => Register16in2:IX.dL[3]
+DataIn[3] => Register08:IR.d[3]
+DataIn[4] => mux2x08:MuxDIn.b[4]
+DataIn[4] => Register16in2:MB.dH[4]
+DataIn[4] => Register16in2:MB.dL[4]
+DataIn[4] => Register16in2:IX.dH[4]
+DataIn[4] => Register16in2:IX.dL[4]
+DataIn[4] => Register08:IR.d[4]
+DataIn[5] => mux2x08:MuxDIn.b[5]
+DataIn[5] => Register16in2:MB.dH[5]
+DataIn[5] => Register16in2:MB.dL[5]
+DataIn[5] => Register16in2:IX.dH[5]
+DataIn[5] => Register16in2:IX.dL[5]
+DataIn[5] => Register08:IR.d[5]
+DataIn[6] => mux2x08:MuxDIn.b[6]
+DataIn[6] => Register16in2:MB.dH[6]
+DataIn[6] => Register16in2:MB.dL[6]
+DataIn[6] => Register16in2:IX.dH[6]
+DataIn[6] => Register16in2:IX.dL[6]
+DataIn[6] => Register08:IR.d[6]
+DataIn[7] => mux2x08:MuxDIn.b[7]
+DataIn[7] => Register16in2:MB.dH[7]
+DataIn[7] => Register16in2:MB.dL[7]
+DataIn[7] => Register16in2:IX.dH[7]
+DataIn[7] => Register16in2:IX.dL[7]
+DataIn[7] => Register08:IR.d[7]
+selMuxDIn => mux2x08:MuxDIn.sel
+loadhMB => Register16in2:MB.loadh
+loadlMB => Register16in2:MB.loadl
+loadhIX => Register16in2:IX.loadh
+loadlIX => Register16in2:IX.loadl
+loadIR => Register08:IR.load
+loadIP => Counter16:IP.load
+incIP => Counter16:IP.inc
+inc2IP => Counter16:IP.inc2
+clearIP => Counter16:IP.clear
+selMuxAddr => mux2x16:MuxAddr.sel
+loadRegB => Register08:RegB.load
+loadRegA => Register08:RegA.load
+modeALU[0] => ALU08:ALU.mode[0]
+modeALU[1] => ALU08:ALU.mode[1]
+loadFZ => Register01:FZ.load
+clock => Register08:RegA.clock
+clock => Register08:RegB.clock
+clock => Register16in2:MB.clock
+clock => Register16in2:IX.clock
+clock => Counter16:IP.clock
+clock => Register08:IR.clock
+clock => Register01:FZ.clock
+reset => Register08:RegA.reset
+reset => Register08:RegB.reset
+reset => Register16in2:MB.reset
+reset => Register16in2:IX.reset
+reset => Counter16:IP.reset
+reset => Register08:IR.reset
+reset => Register01:FZ.reset
+IRout[0] <= Register08:IR.q[0]
+IRout[1] <= Register08:IR.q[1]
+IRout[2] <= Register08:IR.q[2]
+IRout[3] <= Register08:IR.q[3]
+IRout[4] <= Register08:IR.q[4]
+IRout[5] <= Register08:IR.q[5]
+IRout[6] <= Register08:IR.q[6]
+IRout[7] <= Register08:IR.q[7]
+Address[0] <= mux2x16:MuxAddr.q[0]
+Address[1] <= mux2x16:MuxAddr.q[1]
+Address[2] <= mux2x16:MuxAddr.q[2]
+Address[3] <= mux2x16:MuxAddr.q[3]
+Address[4] <= mux2x16:MuxAddr.q[4]
+Address[5] <= mux2x16:MuxAddr.q[5]
+Address[6] <= mux2x16:MuxAddr.q[6]
+Address[7] <= mux2x16:MuxAddr.q[7]
+Address[8] <= mux2x16:MuxAddr.q[8]
+Address[9] <= mux2x16:MuxAddr.q[9]
+Address[10] <= mux2x16:MuxAddr.q[10]
+Address[11] <= mux2x16:MuxAddr.q[11]
+Address[12] <= mux2x16:MuxAddr.q[12]
+Address[13] <= mux2x16:MuxAddr.q[13]
+Address[14] <= mux2x16:MuxAddr.q[14]
+Address[15] <= mux2x16:MuxAddr.q[15]
+ZeroF <= Register01:FZ.q
+CarryF <= ALU08:ALU.cout
+DataOut[0] <= Register08:RegA.q[0]
+DataOut[1] <= Register08:RegA.q[1]
+DataOut[2] <= Register08:RegA.q[2]
+DataOut[3] <= Register08:RegA.q[3]
+DataOut[4] <= Register08:RegA.q[4]
+DataOut[5] <= Register08:RegA.q[5]
+DataOut[6] <= Register08:RegA.q[6]
+DataOut[7] <= Register08:RegA.q[7]
+Aout[0] <= Register08:RegA.q[0]
+Aout[1] <= Register08:RegA.q[1]
+Aout[2] <= Register08:RegA.q[2]
+Aout[3] <= Register08:RegA.q[3]
+Aout[4] <= Register08:RegA.q[4]
+Aout[5] <= Register08:RegA.q[5]
+Aout[6] <= Register08:RegA.q[6]
+Aout[7] <= Register08:RegA.q[7]
+Bout[0] <= Register08:RegB.q[0]
+Bout[1] <= Register08:RegB.q[1]
+Bout[2] <= Register08:RegB.q[2]
+Bout[3] <= Register08:RegB.q[3]
+Bout[4] <= Register08:RegB.q[4]
+Bout[5] <= Register08:RegB.q[5]
+Bout[6] <= Register08:RegB.q[6]
+Bout[7] <= Register08:RegB.q[7]
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Mux2x08:MuxDIn
+a[0] => q.DATAB
+a[1] => q.DATAB
+a[2] => q.DATAB
+a[3] => q.DATAB
+a[4] => q.DATAB
+a[5] => q.DATAB
+a[6] => q.DATAB
+a[7] => q.DATAB
+b[0] => q.DATAA
+b[1] => q.DATAA
+b[2] => q.DATAA
+b[3] => q.DATAA
+b[4] => q.DATAA
+b[5] => q.DATAA
+b[6] => q.DATAA
+b[7] => q.DATAA
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+q[0] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegA
+d[0] => Dtmp.IN0
+d[1] => Dtmp.IN0
+d[2] => Dtmp.IN0
+d[3] => Dtmp.IN0
+d[4] => Dtmp.IN0
+d[5] => Dtmp.IN0
+d[6] => Dtmp.IN0
+d[7] => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:Generate_Registers:0:dffi.clk
+clock => DFlipFlop:Generate_Registers:1:dffi.clk
+clock => DFlipFlop:Generate_Registers:2:dffi.clk
+clock => DFlipFlop:Generate_Registers:3:dffi.clk
+clock => DFlipFlop:Generate_Registers:4:dffi.clk
+clock => DFlipFlop:Generate_Registers:5:dffi.clk
+clock => DFlipFlop:Generate_Registers:6:dffi.clk
+clock => DFlipFlop:Generate_Registers:7:dffi.clk
+reset => DFlipFlop:Generate_Registers:0:dffi.rst
+reset => DFlipFlop:Generate_Registers:1:dffi.rst
+reset => DFlipFlop:Generate_Registers:2:dffi.rst
+reset => DFlipFlop:Generate_Registers:3:dffi.rst
+reset => DFlipFlop:Generate_Registers:4:dffi.rst
+reset => DFlipFlop:Generate_Registers:5:dffi.rst
+reset => DFlipFlop:Generate_Registers:6:dffi.rst
+reset => DFlipFlop:Generate_Registers:7:dffi.rst
+q[0] <= DFlipFlop:Generate_Registers:0:dffi.q
+q[1] <= DFlipFlop:Generate_Registers:1:dffi.q
+q[2] <= DFlipFlop:Generate_Registers:2:dffi.q
+q[3] <= DFlipFlop:Generate_Registers:3:dffi.q
+q[4] <= DFlipFlop:Generate_Registers:4:dffi.q
+q[5] <= DFlipFlop:Generate_Registers:5:dffi.q
+q[6] <= DFlipFlop:Generate_Registers:6:dffi.q
+q[7] <= DFlipFlop:Generate_Registers:7:dffi.q
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegA|DFlipFlop:\Generate_Registers:0:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegA|DFlipFlop:\Generate_Registers:1:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegA|DFlipFlop:\Generate_Registers:2:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegA|DFlipFlop:\Generate_Registers:3:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegA|DFlipFlop:\Generate_Registers:4:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegA|DFlipFlop:\Generate_Registers:5:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegA|DFlipFlop:\Generate_Registers:6:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegA|DFlipFlop:\Generate_Registers:7:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegB
+d[0] => Dtmp.IN0
+d[1] => Dtmp.IN0
+d[2] => Dtmp.IN0
+d[3] => Dtmp.IN0
+d[4] => Dtmp.IN0
+d[5] => Dtmp.IN0
+d[6] => Dtmp.IN0
+d[7] => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:Generate_Registers:0:dffi.clk
+clock => DFlipFlop:Generate_Registers:1:dffi.clk
+clock => DFlipFlop:Generate_Registers:2:dffi.clk
+clock => DFlipFlop:Generate_Registers:3:dffi.clk
+clock => DFlipFlop:Generate_Registers:4:dffi.clk
+clock => DFlipFlop:Generate_Registers:5:dffi.clk
+clock => DFlipFlop:Generate_Registers:6:dffi.clk
+clock => DFlipFlop:Generate_Registers:7:dffi.clk
+reset => DFlipFlop:Generate_Registers:0:dffi.rst
+reset => DFlipFlop:Generate_Registers:1:dffi.rst
+reset => DFlipFlop:Generate_Registers:2:dffi.rst
+reset => DFlipFlop:Generate_Registers:3:dffi.rst
+reset => DFlipFlop:Generate_Registers:4:dffi.rst
+reset => DFlipFlop:Generate_Registers:5:dffi.rst
+reset => DFlipFlop:Generate_Registers:6:dffi.rst
+reset => DFlipFlop:Generate_Registers:7:dffi.rst
+q[0] <= DFlipFlop:Generate_Registers:0:dffi.q
+q[1] <= DFlipFlop:Generate_Registers:1:dffi.q
+q[2] <= DFlipFlop:Generate_Registers:2:dffi.q
+q[3] <= DFlipFlop:Generate_Registers:3:dffi.q
+q[4] <= DFlipFlop:Generate_Registers:4:dffi.q
+q[5] <= DFlipFlop:Generate_Registers:5:dffi.q
+q[6] <= DFlipFlop:Generate_Registers:6:dffi.q
+q[7] <= DFlipFlop:Generate_Registers:7:dffi.q
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegB|DFlipFlop:\Generate_Registers:0:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegB|DFlipFlop:\Generate_Registers:1:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegB|DFlipFlop:\Generate_Registers:2:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegB|DFlipFlop:\Generate_Registers:3:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegB|DFlipFlop:\Generate_Registers:4:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegB|DFlipFlop:\Generate_Registers:5:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegB|DFlipFlop:\Generate_Registers:6:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:RegB|DFlipFlop:\Generate_Registers:7:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB
+dh[0] => Register08:RegH.d[0]
+dh[1] => Register08:RegH.d[1]
+dh[2] => Register08:RegH.d[2]
+dh[3] => Register08:RegH.d[3]
+dh[4] => Register08:RegH.d[4]
+dh[5] => Register08:RegH.d[5]
+dh[6] => Register08:RegH.d[6]
+dh[7] => Register08:RegH.d[7]
+dl[0] => Register08:RegL.d[0]
+dl[1] => Register08:RegL.d[1]
+dl[2] => Register08:RegL.d[2]
+dl[3] => Register08:RegL.d[3]
+dl[4] => Register08:RegL.d[4]
+dl[5] => Register08:RegL.d[5]
+dl[6] => Register08:RegL.d[6]
+dl[7] => Register08:RegL.d[7]
+loadh => Register08:RegH.load
+loadl => Register08:RegL.load
+clock => Register08:RegH.clock
+clock => Register08:RegL.clock
+reset => Register08:RegH.reset
+reset => Register08:RegL.reset
+q[0] <= Register08:RegL.q[0]
+q[1] <= Register08:RegL.q[1]
+q[2] <= Register08:RegL.q[2]
+q[3] <= Register08:RegL.q[3]
+q[4] <= Register08:RegL.q[4]
+q[5] <= Register08:RegL.q[5]
+q[6] <= Register08:RegL.q[6]
+q[7] <= Register08:RegL.q[7]
+q[8] <= Register08:RegH.q[0]
+q[9] <= Register08:RegH.q[1]
+q[10] <= Register08:RegH.q[2]
+q[11] <= Register08:RegH.q[3]
+q[12] <= Register08:RegH.q[4]
+q[13] <= Register08:RegH.q[5]
+q[14] <= Register08:RegH.q[6]
+q[15] <= Register08:RegH.q[7]
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegH
+d[0] => Dtmp.IN0
+d[1] => Dtmp.IN0
+d[2] => Dtmp.IN0
+d[3] => Dtmp.IN0
+d[4] => Dtmp.IN0
+d[5] => Dtmp.IN0
+d[6] => Dtmp.IN0
+d[7] => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:Generate_Registers:0:dffi.clk
+clock => DFlipFlop:Generate_Registers:1:dffi.clk
+clock => DFlipFlop:Generate_Registers:2:dffi.clk
+clock => DFlipFlop:Generate_Registers:3:dffi.clk
+clock => DFlipFlop:Generate_Registers:4:dffi.clk
+clock => DFlipFlop:Generate_Registers:5:dffi.clk
+clock => DFlipFlop:Generate_Registers:6:dffi.clk
+clock => DFlipFlop:Generate_Registers:7:dffi.clk
+reset => DFlipFlop:Generate_Registers:0:dffi.rst
+reset => DFlipFlop:Generate_Registers:1:dffi.rst
+reset => DFlipFlop:Generate_Registers:2:dffi.rst
+reset => DFlipFlop:Generate_Registers:3:dffi.rst
+reset => DFlipFlop:Generate_Registers:4:dffi.rst
+reset => DFlipFlop:Generate_Registers:5:dffi.rst
+reset => DFlipFlop:Generate_Registers:6:dffi.rst
+reset => DFlipFlop:Generate_Registers:7:dffi.rst
+q[0] <= DFlipFlop:Generate_Registers:0:dffi.q
+q[1] <= DFlipFlop:Generate_Registers:1:dffi.q
+q[2] <= DFlipFlop:Generate_Registers:2:dffi.q
+q[3] <= DFlipFlop:Generate_Registers:3:dffi.q
+q[4] <= DFlipFlop:Generate_Registers:4:dffi.q
+q[5] <= DFlipFlop:Generate_Registers:5:dffi.q
+q[6] <= DFlipFlop:Generate_Registers:6:dffi.q
+q[7] <= DFlipFlop:Generate_Registers:7:dffi.q
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegH|DFlipFlop:\Generate_Registers:0:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegH|DFlipFlop:\Generate_Registers:1:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegH|DFlipFlop:\Generate_Registers:2:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegH|DFlipFlop:\Generate_Registers:3:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegH|DFlipFlop:\Generate_Registers:4:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegH|DFlipFlop:\Generate_Registers:5:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegH|DFlipFlop:\Generate_Registers:6:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegH|DFlipFlop:\Generate_Registers:7:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegL
+d[0] => Dtmp.IN0
+d[1] => Dtmp.IN0
+d[2] => Dtmp.IN0
+d[3] => Dtmp.IN0
+d[4] => Dtmp.IN0
+d[5] => Dtmp.IN0
+d[6] => Dtmp.IN0
+d[7] => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:Generate_Registers:0:dffi.clk
+clock => DFlipFlop:Generate_Registers:1:dffi.clk
+clock => DFlipFlop:Generate_Registers:2:dffi.clk
+clock => DFlipFlop:Generate_Registers:3:dffi.clk
+clock => DFlipFlop:Generate_Registers:4:dffi.clk
+clock => DFlipFlop:Generate_Registers:5:dffi.clk
+clock => DFlipFlop:Generate_Registers:6:dffi.clk
+clock => DFlipFlop:Generate_Registers:7:dffi.clk
+reset => DFlipFlop:Generate_Registers:0:dffi.rst
+reset => DFlipFlop:Generate_Registers:1:dffi.rst
+reset => DFlipFlop:Generate_Registers:2:dffi.rst
+reset => DFlipFlop:Generate_Registers:3:dffi.rst
+reset => DFlipFlop:Generate_Registers:4:dffi.rst
+reset => DFlipFlop:Generate_Registers:5:dffi.rst
+reset => DFlipFlop:Generate_Registers:6:dffi.rst
+reset => DFlipFlop:Generate_Registers:7:dffi.rst
+q[0] <= DFlipFlop:Generate_Registers:0:dffi.q
+q[1] <= DFlipFlop:Generate_Registers:1:dffi.q
+q[2] <= DFlipFlop:Generate_Registers:2:dffi.q
+q[3] <= DFlipFlop:Generate_Registers:3:dffi.q
+q[4] <= DFlipFlop:Generate_Registers:4:dffi.q
+q[5] <= DFlipFlop:Generate_Registers:5:dffi.q
+q[6] <= DFlipFlop:Generate_Registers:6:dffi.q
+q[7] <= DFlipFlop:Generate_Registers:7:dffi.q
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegL|DFlipFlop:\Generate_Registers:0:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegL|DFlipFlop:\Generate_Registers:1:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegL|DFlipFlop:\Generate_Registers:2:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegL|DFlipFlop:\Generate_Registers:3:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegL|DFlipFlop:\Generate_Registers:4:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegL|DFlipFlop:\Generate_Registers:5:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegL|DFlipFlop:\Generate_Registers:6:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:MB|Register08:RegL|DFlipFlop:\Generate_Registers:7:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX
+dh[0] => Register08:RegH.d[0]
+dh[1] => Register08:RegH.d[1]
+dh[2] => Register08:RegH.d[2]
+dh[3] => Register08:RegH.d[3]
+dh[4] => Register08:RegH.d[4]
+dh[5] => Register08:RegH.d[5]
+dh[6] => Register08:RegH.d[6]
+dh[7] => Register08:RegH.d[7]
+dl[0] => Register08:RegL.d[0]
+dl[1] => Register08:RegL.d[1]
+dl[2] => Register08:RegL.d[2]
+dl[3] => Register08:RegL.d[3]
+dl[4] => Register08:RegL.d[4]
+dl[5] => Register08:RegL.d[5]
+dl[6] => Register08:RegL.d[6]
+dl[7] => Register08:RegL.d[7]
+loadh => Register08:RegH.load
+loadl => Register08:RegL.load
+clock => Register08:RegH.clock
+clock => Register08:RegL.clock
+reset => Register08:RegH.reset
+reset => Register08:RegL.reset
+q[0] <= Register08:RegL.q[0]
+q[1] <= Register08:RegL.q[1]
+q[2] <= Register08:RegL.q[2]
+q[3] <= Register08:RegL.q[3]
+q[4] <= Register08:RegL.q[4]
+q[5] <= Register08:RegL.q[5]
+q[6] <= Register08:RegL.q[6]
+q[7] <= Register08:RegL.q[7]
+q[8] <= Register08:RegH.q[0]
+q[9] <= Register08:RegH.q[1]
+q[10] <= Register08:RegH.q[2]
+q[11] <= Register08:RegH.q[3]
+q[12] <= Register08:RegH.q[4]
+q[13] <= Register08:RegH.q[5]
+q[14] <= Register08:RegH.q[6]
+q[15] <= Register08:RegH.q[7]
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegH
+d[0] => Dtmp.IN0
+d[1] => Dtmp.IN0
+d[2] => Dtmp.IN0
+d[3] => Dtmp.IN0
+d[4] => Dtmp.IN0
+d[5] => Dtmp.IN0
+d[6] => Dtmp.IN0
+d[7] => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:Generate_Registers:0:dffi.clk
+clock => DFlipFlop:Generate_Registers:1:dffi.clk
+clock => DFlipFlop:Generate_Registers:2:dffi.clk
+clock => DFlipFlop:Generate_Registers:3:dffi.clk
+clock => DFlipFlop:Generate_Registers:4:dffi.clk
+clock => DFlipFlop:Generate_Registers:5:dffi.clk
+clock => DFlipFlop:Generate_Registers:6:dffi.clk
+clock => DFlipFlop:Generate_Registers:7:dffi.clk
+reset => DFlipFlop:Generate_Registers:0:dffi.rst
+reset => DFlipFlop:Generate_Registers:1:dffi.rst
+reset => DFlipFlop:Generate_Registers:2:dffi.rst
+reset => DFlipFlop:Generate_Registers:3:dffi.rst
+reset => DFlipFlop:Generate_Registers:4:dffi.rst
+reset => DFlipFlop:Generate_Registers:5:dffi.rst
+reset => DFlipFlop:Generate_Registers:6:dffi.rst
+reset => DFlipFlop:Generate_Registers:7:dffi.rst
+q[0] <= DFlipFlop:Generate_Registers:0:dffi.q
+q[1] <= DFlipFlop:Generate_Registers:1:dffi.q
+q[2] <= DFlipFlop:Generate_Registers:2:dffi.q
+q[3] <= DFlipFlop:Generate_Registers:3:dffi.q
+q[4] <= DFlipFlop:Generate_Registers:4:dffi.q
+q[5] <= DFlipFlop:Generate_Registers:5:dffi.q
+q[6] <= DFlipFlop:Generate_Registers:6:dffi.q
+q[7] <= DFlipFlop:Generate_Registers:7:dffi.q
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegH|DFlipFlop:\Generate_Registers:0:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegH|DFlipFlop:\Generate_Registers:1:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegH|DFlipFlop:\Generate_Registers:2:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegH|DFlipFlop:\Generate_Registers:3:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegH|DFlipFlop:\Generate_Registers:4:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegH|DFlipFlop:\Generate_Registers:5:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegH|DFlipFlop:\Generate_Registers:6:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegH|DFlipFlop:\Generate_Registers:7:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegL
+d[0] => Dtmp.IN0
+d[1] => Dtmp.IN0
+d[2] => Dtmp.IN0
+d[3] => Dtmp.IN0
+d[4] => Dtmp.IN0
+d[5] => Dtmp.IN0
+d[6] => Dtmp.IN0
+d[7] => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:Generate_Registers:0:dffi.clk
+clock => DFlipFlop:Generate_Registers:1:dffi.clk
+clock => DFlipFlop:Generate_Registers:2:dffi.clk
+clock => DFlipFlop:Generate_Registers:3:dffi.clk
+clock => DFlipFlop:Generate_Registers:4:dffi.clk
+clock => DFlipFlop:Generate_Registers:5:dffi.clk
+clock => DFlipFlop:Generate_Registers:6:dffi.clk
+clock => DFlipFlop:Generate_Registers:7:dffi.clk
+reset => DFlipFlop:Generate_Registers:0:dffi.rst
+reset => DFlipFlop:Generate_Registers:1:dffi.rst
+reset => DFlipFlop:Generate_Registers:2:dffi.rst
+reset => DFlipFlop:Generate_Registers:3:dffi.rst
+reset => DFlipFlop:Generate_Registers:4:dffi.rst
+reset => DFlipFlop:Generate_Registers:5:dffi.rst
+reset => DFlipFlop:Generate_Registers:6:dffi.rst
+reset => DFlipFlop:Generate_Registers:7:dffi.rst
+q[0] <= DFlipFlop:Generate_Registers:0:dffi.q
+q[1] <= DFlipFlop:Generate_Registers:1:dffi.q
+q[2] <= DFlipFlop:Generate_Registers:2:dffi.q
+q[3] <= DFlipFlop:Generate_Registers:3:dffi.q
+q[4] <= DFlipFlop:Generate_Registers:4:dffi.q
+q[5] <= DFlipFlop:Generate_Registers:5:dffi.q
+q[6] <= DFlipFlop:Generate_Registers:6:dffi.q
+q[7] <= DFlipFlop:Generate_Registers:7:dffi.q
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegL|DFlipFlop:\Generate_Registers:0:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegL|DFlipFlop:\Generate_Registers:1:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegL|DFlipFlop:\Generate_Registers:2:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegL|DFlipFlop:\Generate_Registers:3:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegL|DFlipFlop:\Generate_Registers:4:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegL|DFlipFlop:\Generate_Registers:5:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegL|DFlipFlop:\Generate_Registers:6:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register16in2:IX|Register08:RegL|DFlipFlop:\Generate_Registers:7:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|ALU08:ALU
+a[0] => RCAdder08:adder.x[0]
+a[0] => result_logic[0].DATAB
+a[1] => RCAdder08:adder.x[1]
+a[1] => result_logic[1].DATAB
+a[2] => RCAdder08:adder.x[2]
+a[2] => result_logic[2].DATAB
+a[3] => RCAdder08:adder.x[3]
+a[3] => result_logic[3].DATAB
+a[4] => RCAdder08:adder.x[4]
+a[4] => result_logic[4].DATAB
+a[5] => RCAdder08:adder.x[5]
+a[5] => result_logic[5].DATAB
+a[6] => RCAdder08:adder.x[6]
+a[6] => result_logic[6].DATAB
+a[7] => RCAdder08:adder.x[7]
+a[7] => result_logic[7].DATAB
+b[0] => inB[0].DATAB
+b[1] => inB[1].DATAB
+b[2] => inB[2].DATAB
+b[3] => inB[3].DATAB
+b[4] => inB[4].DATAB
+b[5] => inB[5].DATAB
+b[6] => inB[6].DATAB
+b[7] => inB[7].DATAB
+cin => RCAdder08:adder.cin
+mode[0] => Equal0.IN1
+mode[0] => Equal1.IN0
+mode[0] => Equal2.IN1
+mode[0] => Equal4.IN1
+mode[0] => Equal5.IN1
+mode[0] => Equal6.IN0
+mode[0] => Equal7.IN1
+mode[1] => Equal0.IN0
+mode[1] => Equal1.IN1
+mode[1] => Equal2.IN0
+mode[1] => Equal4.IN0
+mode[1] => Equal5.IN0
+mode[1] => Equal6.IN1
+mode[1] => Equal7.IN0
+fout[0] <= result.DB_MAX_OUTPUT_PORT_TYPE
+fout[1] <= result.DB_MAX_OUTPUT_PORT_TYPE
+fout[2] <= result.DB_MAX_OUTPUT_PORT_TYPE
+fout[3] <= result.DB_MAX_OUTPUT_PORT_TYPE
+fout[4] <= result.DB_MAX_OUTPUT_PORT_TYPE
+fout[5] <= result.DB_MAX_OUTPUT_PORT_TYPE
+fout[6] <= result.DB_MAX_OUTPUT_PORT_TYPE
+fout[7] <= result.DB_MAX_OUTPUT_PORT_TYPE
+cout <= RCAdder08:adder.c
+zout <= Equal3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|ALU08:ALU|RCAdder08:adder
+x[0] => FullAdder:add_gen:0:adderi.x
+x[1] => FullAdder:add_gen:1:adderi.x
+x[2] => FullAdder:add_gen:2:adderi.x
+x[3] => FullAdder:add_gen:3:adderi.x
+x[4] => FullAdder:add_gen:4:adderi.x
+x[5] => FullAdder:add_gen:5:adderi.x
+x[6] => FullAdder:add_gen:6:adderi.x
+x[7] => FullAdder:add_gen:7:adderi.x
+y[0] => FullAdder:add_gen:0:adderi.y
+y[1] => FullAdder:add_gen:1:adderi.y
+y[2] => FullAdder:add_gen:2:adderi.y
+y[3] => FullAdder:add_gen:3:adderi.y
+y[4] => FullAdder:add_gen:4:adderi.y
+y[5] => FullAdder:add_gen:5:adderi.y
+y[6] => FullAdder:add_gen:6:adderi.y
+y[7] => FullAdder:add_gen:7:adderi.y
+cin => FullAdder:add_gen:0:adderi.cin
+s[0] <= FullAdder:add_gen:0:adderi.s
+s[1] <= FullAdder:add_gen:1:adderi.s
+s[2] <= FullAdder:add_gen:2:adderi.s
+s[3] <= FullAdder:add_gen:3:adderi.s
+s[4] <= FullAdder:add_gen:4:adderi.s
+s[5] <= FullAdder:add_gen:5:adderi.s
+s[6] <= FullAdder:add_gen:6:adderi.s
+s[7] <= FullAdder:add_gen:7:adderi.s
+c <= FullAdder:add_gen:7:adderi.c
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|ALU08:ALU|RCAdder08:adder|FullAdder:\add_gen:0:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|ALU08:ALU|RCAdder08:adder|FullAdder:\add_gen:1:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|ALU08:ALU|RCAdder08:adder|FullAdder:\add_gen:2:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|ALU08:ALU|RCAdder08:adder|FullAdder:\add_gen:3:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|ALU08:ALU|RCAdder08:adder|FullAdder:\add_gen:4:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|ALU08:ALU|RCAdder08:adder|FullAdder:\add_gen:5:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|ALU08:ALU|RCAdder08:adder|FullAdder:\add_gen:6:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|ALU08:ALU|RCAdder08:adder|FullAdder:\add_gen:7:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP
+clock => Register16:reg.clock
+load => data_in[15].OUTPUTSELECT
+load => data_in[14].OUTPUTSELECT
+load => data_in[13].OUTPUTSELECT
+load => data_in[12].OUTPUTSELECT
+load => data_in[11].OUTPUTSELECT
+load => data_in[10].OUTPUTSELECT
+load => data_in[9].OUTPUTSELECT
+load => data_in[8].OUTPUTSELECT
+load => data_in[7].OUTPUTSELECT
+load => data_in[6].OUTPUTSELECT
+load => data_in[5].OUTPUTSELECT
+load => data_in[4].OUTPUTSELECT
+load => data_in[3].OUTPUTSELECT
+load => data_in[2].OUTPUTSELECT
+load => data_in[1].OUTPUTSELECT
+load => data_in[0].OUTPUTSELECT
+load => load_in.IN0
+d[0] => data_in[0].DATAB
+d[1] => data_in[1].DATAB
+d[2] => data_in[2].DATAB
+d[3] => data_in[3].DATAB
+d[4] => data_in[4].DATAB
+d[5] => data_in[5].DATAB
+d[6] => data_in[6].DATAB
+d[7] => data_in[7].DATAB
+d[8] => data_in[8].DATAB
+d[9] => data_in[9].DATAB
+d[10] => data_in[10].DATAB
+d[11] => data_in[11].DATAB
+d[12] => data_in[12].DATAB
+d[13] => data_in[13].DATAB
+d[14] => data_in[14].DATAB
+d[15] => data_in[15].DATAB
+inc => data_in.IN0
+inc => load_in.IN1
+inc => RCAdder16:adder.y[0]
+inc => RCAdder16:adder.y[1]
+inc2 => data_in.IN1
+inc2 => load_in.IN1
+clear => load_in.IN1
+reset => Register16:reg.reset
+q[0] <= Register16:reg.q[0]
+q[1] <= Register16:reg.q[1]
+q[2] <= Register16:reg.q[2]
+q[3] <= Register16:reg.q[3]
+q[4] <= Register16:reg.q[4]
+q[5] <= Register16:reg.q[5]
+q[6] <= Register16:reg.q[6]
+q[7] <= Register16:reg.q[7]
+q[8] <= Register16:reg.q[8]
+q[9] <= Register16:reg.q[9]
+q[10] <= Register16:reg.q[10]
+q[11] <= Register16:reg.q[11]
+q[12] <= Register16:reg.q[12]
+q[13] <= Register16:reg.q[13]
+q[14] <= Register16:reg.q[14]
+q[15] <= Register16:reg.q[15]
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg
+d[0] => Dtmp.IN0
+d[1] => Dtmp.IN0
+d[2] => Dtmp.IN0
+d[3] => Dtmp.IN0
+d[4] => Dtmp.IN0
+d[5] => Dtmp.IN0
+d[6] => Dtmp.IN0
+d[7] => Dtmp.IN0
+d[8] => Dtmp.IN0
+d[9] => Dtmp.IN0
+d[10] => Dtmp.IN0
+d[11] => Dtmp.IN0
+d[12] => Dtmp.IN0
+d[13] => Dtmp.IN0
+d[14] => Dtmp.IN0
+d[15] => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:Generate_Registers:0:dffi.clk
+clock => DFlipFlop:Generate_Registers:1:dffi.clk
+clock => DFlipFlop:Generate_Registers:2:dffi.clk
+clock => DFlipFlop:Generate_Registers:3:dffi.clk
+clock => DFlipFlop:Generate_Registers:4:dffi.clk
+clock => DFlipFlop:Generate_Registers:5:dffi.clk
+clock => DFlipFlop:Generate_Registers:6:dffi.clk
+clock => DFlipFlop:Generate_Registers:7:dffi.clk
+clock => DFlipFlop:Generate_Registers:8:dffi.clk
+clock => DFlipFlop:Generate_Registers:9:dffi.clk
+clock => DFlipFlop:Generate_Registers:10:dffi.clk
+clock => DFlipFlop:Generate_Registers:11:dffi.clk
+clock => DFlipFlop:Generate_Registers:12:dffi.clk
+clock => DFlipFlop:Generate_Registers:13:dffi.clk
+clock => DFlipFlop:Generate_Registers:14:dffi.clk
+clock => DFlipFlop:Generate_Registers:15:dffi.clk
+reset => DFlipFlop:Generate_Registers:0:dffi.rst
+reset => DFlipFlop:Generate_Registers:1:dffi.rst
+reset => DFlipFlop:Generate_Registers:2:dffi.rst
+reset => DFlipFlop:Generate_Registers:3:dffi.rst
+reset => DFlipFlop:Generate_Registers:4:dffi.rst
+reset => DFlipFlop:Generate_Registers:5:dffi.rst
+reset => DFlipFlop:Generate_Registers:6:dffi.rst
+reset => DFlipFlop:Generate_Registers:7:dffi.rst
+reset => DFlipFlop:Generate_Registers:8:dffi.rst
+reset => DFlipFlop:Generate_Registers:9:dffi.rst
+reset => DFlipFlop:Generate_Registers:10:dffi.rst
+reset => DFlipFlop:Generate_Registers:11:dffi.rst
+reset => DFlipFlop:Generate_Registers:12:dffi.rst
+reset => DFlipFlop:Generate_Registers:13:dffi.rst
+reset => DFlipFlop:Generate_Registers:14:dffi.rst
+reset => DFlipFlop:Generate_Registers:15:dffi.rst
+q[0] <= DFlipFlop:Generate_Registers:0:dffi.q
+q[1] <= DFlipFlop:Generate_Registers:1:dffi.q
+q[2] <= DFlipFlop:Generate_Registers:2:dffi.q
+q[3] <= DFlipFlop:Generate_Registers:3:dffi.q
+q[4] <= DFlipFlop:Generate_Registers:4:dffi.q
+q[5] <= DFlipFlop:Generate_Registers:5:dffi.q
+q[6] <= DFlipFlop:Generate_Registers:6:dffi.q
+q[7] <= DFlipFlop:Generate_Registers:7:dffi.q
+q[8] <= DFlipFlop:Generate_Registers:8:dffi.q
+q[9] <= DFlipFlop:Generate_Registers:9:dffi.q
+q[10] <= DFlipFlop:Generate_Registers:10:dffi.q
+q[11] <= DFlipFlop:Generate_Registers:11:dffi.q
+q[12] <= DFlipFlop:Generate_Registers:12:dffi.q
+q[13] <= DFlipFlop:Generate_Registers:13:dffi.q
+q[14] <= DFlipFlop:Generate_Registers:14:dffi.q
+q[15] <= DFlipFlop:Generate_Registers:15:dffi.q
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:0:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:1:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:2:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:3:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:4:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:5:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:6:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:7:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:8:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:9:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:10:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:11:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:12:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:13:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:14:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|Register16:reg|DFlipFlop:\Generate_Registers:15:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder
+x[0] => FullAdder:adder_generate:0:adderi.x
+x[1] => FullAdder:adder_generate:1:adderi.x
+x[2] => FullAdder:adder_generate:2:adderi.x
+x[3] => FullAdder:adder_generate:3:adderi.x
+x[4] => FullAdder:adder_generate:4:adderi.x
+x[5] => FullAdder:adder_generate:5:adderi.x
+x[6] => FullAdder:adder_generate:6:adderi.x
+x[7] => FullAdder:adder_generate:7:adderi.x
+x[8] => FullAdder:adder_generate:8:adderi.x
+x[9] => FullAdder:adder_generate:9:adderi.x
+x[10] => FullAdder:adder_generate:10:adderi.x
+x[11] => FullAdder:adder_generate:11:adderi.x
+x[12] => FullAdder:adder_generate:12:adderi.x
+x[13] => FullAdder:adder_generate:13:adderi.x
+x[14] => FullAdder:adder_generate:14:adderi.x
+x[15] => FullAdder:adder_generate:15:adderi.x
+y[0] => FullAdder:adder_generate:0:adderi.y
+y[1] => FullAdder:adder_generate:1:adderi.y
+y[2] => FullAdder:adder_generate:2:adderi.y
+y[3] => FullAdder:adder_generate:3:adderi.y
+y[4] => FullAdder:adder_generate:4:adderi.y
+y[5] => FullAdder:adder_generate:5:adderi.y
+y[6] => FullAdder:adder_generate:6:adderi.y
+y[7] => FullAdder:adder_generate:7:adderi.y
+y[8] => FullAdder:adder_generate:8:adderi.y
+y[9] => FullAdder:adder_generate:9:adderi.y
+y[10] => FullAdder:adder_generate:10:adderi.y
+y[11] => FullAdder:adder_generate:11:adderi.y
+y[12] => FullAdder:adder_generate:12:adderi.y
+y[13] => FullAdder:adder_generate:13:adderi.y
+y[14] => FullAdder:adder_generate:14:adderi.y
+y[15] => FullAdder:adder_generate:15:adderi.y
+cin => FullAdder:adder_generate:0:adderi.cin
+s[0] <= FullAdder:adder_generate:0:adderi.s
+s[1] <= FullAdder:adder_generate:1:adderi.s
+s[2] <= FullAdder:adder_generate:2:adderi.s
+s[3] <= FullAdder:adder_generate:3:adderi.s
+s[4] <= FullAdder:adder_generate:4:adderi.s
+s[5] <= FullAdder:adder_generate:5:adderi.s
+s[6] <= FullAdder:adder_generate:6:adderi.s
+s[7] <= FullAdder:adder_generate:7:adderi.s
+s[8] <= FullAdder:adder_generate:8:adderi.s
+s[9] <= FullAdder:adder_generate:9:adderi.s
+s[10] <= FullAdder:adder_generate:10:adderi.s
+s[11] <= FullAdder:adder_generate:11:adderi.s
+s[12] <= FullAdder:adder_generate:12:adderi.s
+s[13] <= FullAdder:adder_generate:13:adderi.s
+s[14] <= FullAdder:adder_generate:14:adderi.s
+s[15] <= FullAdder:adder_generate:15:adderi.s
+c <= FullAdder:adder_generate:15:adderi.c
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:0:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:1:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:2:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:3:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:4:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:5:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:6:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:7:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:8:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:9:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:10:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:11:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:12:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:13:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:14:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Counter16:IP|RCAdder16:adder|FullAdder:\adder_generate:15:adderi
+x => s.IN0
+x => c.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+y => c.IN1
+cin => s.IN1
+cin => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:IR
+d[0] => Dtmp.IN0
+d[1] => Dtmp.IN0
+d[2] => Dtmp.IN0
+d[3] => Dtmp.IN0
+d[4] => Dtmp.IN0
+d[5] => Dtmp.IN0
+d[6] => Dtmp.IN0
+d[7] => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:Generate_Registers:0:dffi.clk
+clock => DFlipFlop:Generate_Registers:1:dffi.clk
+clock => DFlipFlop:Generate_Registers:2:dffi.clk
+clock => DFlipFlop:Generate_Registers:3:dffi.clk
+clock => DFlipFlop:Generate_Registers:4:dffi.clk
+clock => DFlipFlop:Generate_Registers:5:dffi.clk
+clock => DFlipFlop:Generate_Registers:6:dffi.clk
+clock => DFlipFlop:Generate_Registers:7:dffi.clk
+reset => DFlipFlop:Generate_Registers:0:dffi.rst
+reset => DFlipFlop:Generate_Registers:1:dffi.rst
+reset => DFlipFlop:Generate_Registers:2:dffi.rst
+reset => DFlipFlop:Generate_Registers:3:dffi.rst
+reset => DFlipFlop:Generate_Registers:4:dffi.rst
+reset => DFlipFlop:Generate_Registers:5:dffi.rst
+reset => DFlipFlop:Generate_Registers:6:dffi.rst
+reset => DFlipFlop:Generate_Registers:7:dffi.rst
+q[0] <= DFlipFlop:Generate_Registers:0:dffi.q
+q[1] <= DFlipFlop:Generate_Registers:1:dffi.q
+q[2] <= DFlipFlop:Generate_Registers:2:dffi.q
+q[3] <= DFlipFlop:Generate_Registers:3:dffi.q
+q[4] <= DFlipFlop:Generate_Registers:4:dffi.q
+q[5] <= DFlipFlop:Generate_Registers:5:dffi.q
+q[6] <= DFlipFlop:Generate_Registers:6:dffi.q
+q[7] <= DFlipFlop:Generate_Registers:7:dffi.q
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:IR|DFlipFlop:\Generate_Registers:0:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:IR|DFlipFlop:\Generate_Registers:1:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:IR|DFlipFlop:\Generate_Registers:2:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:IR|DFlipFlop:\Generate_Registers:3:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:IR|DFlipFlop:\Generate_Registers:4:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:IR|DFlipFlop:\Generate_Registers:5:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:IR|DFlipFlop:\Generate_Registers:6:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register08:IR|DFlipFlop:\Generate_Registers:7:dffi
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register01:FZ
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Register01:FZ|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|DataPath:path|Mux2x16:MuxAddr
+a[0] => q.DATAB
+a[1] => q.DATAB
+a[2] => q.DATAB
+a[3] => q.DATAB
+a[4] => q.DATAB
+a[5] => q.DATAB
+a[6] => q.DATAB
+a[7] => q.DATAB
+a[8] => q.DATAB
+a[9] => q.DATAB
+a[10] => q.DATAB
+a[11] => q.DATAB
+a[12] => q.DATAB
+a[13] => q.DATAB
+a[14] => q.DATAB
+a[15] => q.DATAB
+b[0] => q.DATAA
+b[1] => q.DATAA
+b[2] => q.DATAA
+b[3] => q.DATAA
+b[4] => q.DATAA
+b[5] => q.DATAA
+b[6] => q.DATAA
+b[7] => q.DATAA
+b[8] => q.DATAA
+b[9] => q.DATAA
+b[10] => q.DATAA
+b[11] => q.DATAA
+b[12] => q.DATAA
+b[13] => q.DATAA
+b[14] => q.DATAA
+b[15] => q.DATAA
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+sel => q.OUTPUTSELECT
+q[0] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[8] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[9] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[10] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[11] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[12] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[13] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[14] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[15] <= q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl
+IRout[0] => modeALU.DATAB
+IRout[0] => Equal43.IN7
+IRout[0] => Equal44.IN1
+IRout[1] => modeALU.DATAB
+IRout[1] => Equal43.IN1
+IRout[1] => Equal44.IN7
+IRout[2] => loadRegB.DATAB
+IRout[2] => loadRegB.DATAB
+IRout[2] => Equal43.IN6
+IRout[2] => Equal44.IN6
+IRout[3] => loadRegA.DATAB
+IRout[3] => loadRegA.DATAB
+IRout[3] => Equal43.IN5
+IRout[3] => Equal44.IN5
+IRout[4] => Equal6.IN0
+IRout[4] => Equal8.IN3
+IRout[4] => Equal10.IN1
+IRout[4] => Equal12.IN3
+IRout[4] => Equal14.IN3
+IRout[4] => Equal16.IN0
+IRout[4] => Equal18.IN3
+IRout[4] => Equal22.IN0
+IRout[4] => Equal29.IN1
+IRout[4] => Equal35.IN1
+IRout[4] => Equal37.IN3
+IRout[4] => Equal43.IN4
+IRout[4] => Equal44.IN4
+IRout[4] => Equal47.IN1
+IRout[4] => Equal49.IN0
+IRout[4] => Equal50.IN3
+IRout[5] => Equal6.IN3
+IRout[5] => Equal8.IN2
+IRout[5] => Equal10.IN3
+IRout[5] => Equal12.IN2
+IRout[5] => Equal14.IN0
+IRout[5] => Equal16.IN3
+IRout[5] => Equal18.IN2
+IRout[5] => Equal22.IN3
+IRout[5] => Equal29.IN3
+IRout[5] => Equal31.IN2
+IRout[5] => Equal35.IN3
+IRout[5] => Equal37.IN2
+IRout[5] => Equal43.IN0
+IRout[5] => Equal44.IN0
+IRout[5] => Equal45.IN0
+IRout[5] => Equal47.IN3
+IRout[5] => Equal49.IN3
+IRout[5] => Equal50.IN0
+IRout[6] => Equal6.IN2
+IRout[6] => Equal8.IN1
+IRout[6] => Equal10.IN2
+IRout[6] => Equal12.IN1
+IRout[6] => Equal14.IN2
+IRout[6] => Equal16.IN2
+IRout[6] => Equal18.IN0
+IRout[6] => Equal22.IN2
+IRout[6] => Equal27.IN1
+IRout[6] => Equal29.IN2
+IRout[6] => Equal31.IN1
+IRout[6] => Equal33.IN0
+IRout[6] => Equal35.IN2
+IRout[6] => Equal37.IN1
+IRout[6] => Equal39.IN1
+IRout[6] => Equal43.IN3
+IRout[6] => Equal44.IN3
+IRout[6] => Equal45.IN2
+IRout[6] => Equal47.IN2
+IRout[6] => Equal49.IN2
+IRout[6] => Equal50.IN2
+IRout[7] => Equal6.IN1
+IRout[7] => Equal8.IN0
+IRout[7] => Equal10.IN0
+IRout[7] => Equal12.IN0
+IRout[7] => Equal14.IN1
+IRout[7] => Equal16.IN1
+IRout[7] => Equal18.IN1
+IRout[7] => Equal22.IN1
+IRout[7] => Equal27.IN0
+IRout[7] => Equal29.IN0
+IRout[7] => Equal31.IN0
+IRout[7] => Equal33.IN1
+IRout[7] => Equal35.IN0
+IRout[7] => Equal37.IN0
+IRout[7] => Equal39.IN0
+IRout[7] => Equal43.IN2
+IRout[7] => Equal44.IN2
+IRout[7] => Equal45.IN1
+IRout[7] => Equal47.IN0
+IRout[7] => Equal49.IN1
+IRout[7] => Equal50.IN1
+ZeroF => cJCextA.IN1
+ZeroF => cJCintF.IN1
+ZeroF => cJCintD.IN1
+ZeroF => inc2IP.IN1
+CarryF => ~NO_FANOUT~
+clock => Johnson1L01:JCextA.clock
+clock => Johnson1L01:JCextB.clock
+clock => Johnson2L0:JCextC.clock
+clock => Johnson1L1:JCintA.clock
+clock => Johnson2L0:JCintB.clock
+clock => Johnson2L0:JCintC.clock
+clock => Johnson1L0:JCintD.clock
+clock => Johnson2L0:JCintE.clock
+clock => Johnson3L0:JCintF.clock
+reset => Johnson1L01:JCextA.reset
+reset => Johnson1L01:JCextB.reset
+reset => Johnson2L0:JCextC.reset
+reset => Johnson1L1:JCintA.reset
+reset => Johnson2L0:JCintB.reset
+reset => Johnson2L0:JCintC.reset
+reset => Johnson1L0:JCintD.reset
+reset => Johnson2L0:JCintE.reset
+reset => Johnson3L0:JCintF.reset
+selMuxDIn <= selMuxDIn.DB_MAX_OUTPUT_PORT_TYPE
+loadhMB <= Equal40.DB_MAX_OUTPUT_PORT_TYPE
+loadlMB <= Equal41.DB_MAX_OUTPUT_PORT_TYPE
+loadhIX <= loadhIX.DB_MAX_OUTPUT_PORT_TYPE
+loadlIX <= loadlIX.DB_MAX_OUTPUT_PORT_TYPE
+loadIR <= Equal38.DB_MAX_OUTPUT_PORT_TYPE
+loadIP <= Equal42.DB_MAX_OUTPUT_PORT_TYPE
+incIP <= incIP.DB_MAX_OUTPUT_PORT_TYPE
+inc2IP <= inc2IP.DB_MAX_OUTPUT_PORT_TYPE
+clearIP <= Johnson1L1:JCintA.q
+selMuxAddr <= selMuxAddr.DB_MAX_OUTPUT_PORT_TYPE
+loadRegB <= loadRegB.DB_MAX_OUTPUT_PORT_TYPE
+loadRegA <= loadRegA.DB_MAX_OUTPUT_PORT_TYPE
+modeALU[0] <= modeALU.DB_MAX_OUTPUT_PORT_TYPE
+modeALU[1] <= modeALU.DB_MAX_OUTPUT_PORT_TYPE
+loadFZ <= modeALU.DB_MAX_OUTPUT_PORT_TYPE
+read <= read.DB_MAX_OUTPUT_PORT_TYPE
+write <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson1L01:JCextA
+cond0 => stop1.IN1
+cond1 => stop1.IN1
+clock => Register01:jc1.clock
+reset => Register01:jc1.reset
+q <= Register01:jc1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson1L01:JCextA|Register01:jc1
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson1L01:JCextA|Register01:jc1|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson1L01:JCextB
+cond0 => stop1.IN1
+cond1 => stop1.IN1
+clock => Register01:jc1.clock
+reset => Register01:jc1.reset
+q <= Register01:jc1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson1L01:JCextB|Register01:jc1
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson1L01:JCextB|Register01:jc1|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCextC
+cond0 => stop1.IN1
+clock => Register01:jc1.clock
+clock => Register01:jc2.clock
+reset => Register01:jc1.reset
+reset => Register01:jc2.reset
+q[0] <= Register01:jc1.q
+q[1] <= Register01:jc2.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCextC|Register01:jc1
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCextC|Register01:jc1|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCextC|Register01:jc2
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCextC|Register01:jc2|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson1L1:JCintA
+cond1 => stop1.IN1
+clock => Register01:jc1.clock
+reset => Register01:jc1.reset
+q <= Register01:jc1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson1L1:JCintA|Register01:jc1
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson1L1:JCintA|Register01:jc1|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintB
+cond0 => stop1.IN1
+clock => Register01:jc1.clock
+clock => Register01:jc2.clock
+reset => Register01:jc1.reset
+reset => Register01:jc2.reset
+q[0] <= Register01:jc1.q
+q[1] <= Register01:jc2.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintB|Register01:jc1
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintB|Register01:jc1|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintB|Register01:jc2
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintB|Register01:jc2|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintC
+cond0 => stop1.IN1
+clock => Register01:jc1.clock
+clock => Register01:jc2.clock
+reset => Register01:jc1.reset
+reset => Register01:jc2.reset
+q[0] <= Register01:jc1.q
+q[1] <= Register01:jc2.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintC|Register01:jc1
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintC|Register01:jc1|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintC|Register01:jc2
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintC|Register01:jc2|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson1L0:JCintD
+cond0 => stop1.IN1
+clock => Register01:jc1.clock
+reset => Register01:jc1.reset
+q <= Register01:jc1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson1L0:JCintD|Register01:jc1
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson1L0:JCintD|Register01:jc1|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintE
+cond0 => stop1.IN1
+clock => Register01:jc1.clock
+clock => Register01:jc2.clock
+reset => Register01:jc1.reset
+reset => Register01:jc2.reset
+q[0] <= Register01:jc1.q
+q[1] <= Register01:jc2.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintE|Register01:jc1
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintE|Register01:jc1|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintE|Register01:jc2
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson2L0:JCintE|Register01:jc2|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson3L0:JCintF
+cond0 => stop1.IN1
+clock => Register01:jc1.clock
+clock => Register01:jc2.clock
+clock => Register01:jc3.clock
+reset => Register01:jc1.reset
+reset => Register01:jc2.reset
+reset => Register01:jc3.reset
+q[0] <= Register01:jc1.q
+q[1] <= Register01:jc2.q
+q[2] <= Register01:jc3.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson3L0:JCintF|Register01:jc1
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson3L0:JCintF|Register01:jc1|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson3L0:JCintF|Register01:jc2
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson3L0:JCintF|Register01:jc2|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson3L0:JCintF|Register01:jc3
+d => Dtmp.IN0
+load => Dtmp.IN1
+load => Dtmp.IN1
+clock => DFlipFlop:dff1.clk
+reset => DFlipFlop:dff1.rst
+q <= DFlipFlop:dff1.q
+
+
+|CPUCircuit|TinyProcessor:Processor|Controler:ctrl|Johnson3L0:JCintF|Register01:jc3|DFlipFlop:dff1
+d => q.DATAA
+d => qb~reg0.DATAIN
+clk => qb~reg0.CLK
+clk => q~reg0.CLK
+rst => q.OUTPUTSELECT
+rst => qb~reg0.ENA
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+qb <= qb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|ccmux4x08:SelInput
+sel[0] => Equal0.IN0
+sel[0] => Equal1.IN1
+sel[0] => Equal2.IN1
+sel[1] => Equal0.IN1
+sel[1] => Equal1.IN0
+sel[1] => Equal2.IN0
+a[0] => q.DATAB
+a[1] => q.DATAB
+a[2] => q.DATAB
+a[3] => q.DATAB
+a[4] => q.DATAB
+a[5] => q.DATAB
+a[6] => q.DATAB
+a[7] => q.DATAB
+b[0] => q.DATAB
+b[1] => q.DATAB
+b[2] => q.DATAB
+b[3] => q.DATAB
+b[4] => q.DATAB
+b[5] => q.DATAB
+b[6] => q.DATAB
+b[7] => q.DATAB
+c[0] => q.DATAB
+c[1] => q.DATAB
+c[2] => q.DATAB
+c[3] => q.DATAB
+c[4] => q.DATAB
+c[5] => q.DATAB
+c[6] => q.DATAB
+c[7] => q.DATAB
+d[0] => q.DATAA
+d[1] => q.DATAA
+d[2] => q.DATAA
+d[3] => q.DATAA
+d[4] => q.DATAA
+d[5] => q.DATAA
+d[6] => q.DATAA
+d[7] => q.DATAA
+q[0] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|ccmux4x16:SelOutput
+sel[0] => Equal0.IN0
+sel[0] => Equal1.IN1
+sel[0] => Equal2.IN1
+sel[1] => Equal0.IN1
+sel[1] => Equal1.IN0
+sel[1] => Equal2.IN0
+a[0] => q.DATAB
+a[1] => q.DATAB
+a[2] => q.DATAB
+a[3] => q.DATAB
+a[4] => q.DATAB
+a[5] => q.DATAB
+a[6] => q.DATAB
+a[7] => q.DATAB
+a[8] => q.DATAB
+a[9] => q.DATAB
+a[10] => q.DATAB
+a[11] => q.DATAB
+a[12] => q.DATAB
+a[13] => q.DATAB
+a[14] => q.DATAB
+a[15] => q.DATAB
+b[0] => q.DATAB
+b[1] => q.DATAB
+b[2] => q.DATAB
+b[3] => q.DATAB
+b[4] => q.DATAB
+b[5] => q.DATAB
+b[6] => q.DATAB
+b[7] => q.DATAB
+b[8] => q.DATAB
+b[9] => q.DATAB
+b[10] => q.DATAB
+b[11] => q.DATAB
+b[12] => q.DATAB
+b[13] => q.DATAB
+b[14] => q.DATAB
+b[15] => q.DATAB
+c[0] => q.DATAB
+c[1] => q.DATAB
+c[2] => q.DATAB
+c[3] => q.DATAB
+c[4] => q.DATAB
+c[5] => q.DATAB
+c[6] => q.DATAB
+c[7] => q.DATAB
+c[8] => q.DATAB
+c[9] => q.DATAB
+c[10] => q.DATAB
+c[11] => q.DATAB
+c[12] => q.DATAB
+c[13] => q.DATAB
+c[14] => q.DATAB
+c[15] => q.DATAB
+d[0] => q.DATAA
+d[1] => q.DATAA
+d[2] => q.DATAA
+d[3] => q.DATAA
+d[4] => q.DATAA
+d[5] => q.DATAA
+d[6] => q.DATAA
+d[7] => q.DATAA
+d[8] => q.DATAA
+d[9] => q.DATAA
+d[10] => q.DATAA
+d[11] => q.DATAA
+d[12] => q.DATAA
+d[13] => q.DATAA
+d[14] => q.DATAA
+d[15] => q.DATAA
+q[0] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[8] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[9] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[10] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[11] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[12] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[13] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[14] <= q.DB_MAX_OUTPUT_PORT_TYPE
+q[15] <= q.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|DecSeg:DecHEX0
+data[0] => Mux0.IN19
+data[0] => Mux1.IN19
+data[0] => Mux2.IN19
+data[0] => Mux3.IN19
+data[0] => Mux4.IN19
+data[0] => Mux5.IN19
+data[0] => Mux6.IN19
+data[1] => Mux0.IN18
+data[1] => Mux1.IN18
+data[1] => Mux2.IN18
+data[1] => Mux3.IN18
+data[1] => Mux4.IN18
+data[1] => Mux5.IN18
+data[1] => Mux6.IN18
+data[2] => Mux0.IN17
+data[2] => Mux1.IN17
+data[2] => Mux2.IN17
+data[2] => Mux3.IN17
+data[2] => Mux4.IN17
+data[2] => Mux5.IN17
+data[2] => Mux6.IN17
+data[3] => Mux0.IN16
+data[3] => Mux1.IN16
+data[3] => Mux2.IN16
+data[3] => Mux3.IN16
+data[3] => Mux4.IN16
+data[3] => Mux5.IN16
+data[3] => Mux6.IN16
+seg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|DecSeg:DecHEX1
+data[0] => Mux0.IN19
+data[0] => Mux1.IN19
+data[0] => Mux2.IN19
+data[0] => Mux3.IN19
+data[0] => Mux4.IN19
+data[0] => Mux5.IN19
+data[0] => Mux6.IN19
+data[1] => Mux0.IN18
+data[1] => Mux1.IN18
+data[1] => Mux2.IN18
+data[1] => Mux3.IN18
+data[1] => Mux4.IN18
+data[1] => Mux5.IN18
+data[1] => Mux6.IN18
+data[2] => Mux0.IN17
+data[2] => Mux1.IN17
+data[2] => Mux2.IN17
+data[2] => Mux3.IN17
+data[2] => Mux4.IN17
+data[2] => Mux5.IN17
+data[2] => Mux6.IN17
+data[3] => Mux0.IN16
+data[3] => Mux1.IN16
+data[3] => Mux2.IN16
+data[3] => Mux3.IN16
+data[3] => Mux4.IN16
+data[3] => Mux5.IN16
+data[3] => Mux6.IN16
+seg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|DecSeg:DecHEX2
+data[0] => Mux0.IN19
+data[0] => Mux1.IN19
+data[0] => Mux2.IN19
+data[0] => Mux3.IN19
+data[0] => Mux4.IN19
+data[0] => Mux5.IN19
+data[0] => Mux6.IN19
+data[1] => Mux0.IN18
+data[1] => Mux1.IN18
+data[1] => Mux2.IN18
+data[1] => Mux3.IN18
+data[1] => Mux4.IN18
+data[1] => Mux5.IN18
+data[1] => Mux6.IN18
+data[2] => Mux0.IN17
+data[2] => Mux1.IN17
+data[2] => Mux2.IN17
+data[2] => Mux3.IN17
+data[2] => Mux4.IN17
+data[2] => Mux5.IN17
+data[2] => Mux6.IN17
+data[3] => Mux0.IN16
+data[3] => Mux1.IN16
+data[3] => Mux2.IN16
+data[3] => Mux3.IN16
+data[3] => Mux4.IN16
+data[3] => Mux5.IN16
+data[3] => Mux6.IN16
+seg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|DecSeg:DecHEX3
+data[0] => Mux0.IN19
+data[0] => Mux1.IN19
+data[0] => Mux2.IN19
+data[0] => Mux3.IN19
+data[0] => Mux4.IN19
+data[0] => Mux5.IN19
+data[0] => Mux6.IN19
+data[1] => Mux0.IN18
+data[1] => Mux1.IN18
+data[1] => Mux2.IN18
+data[1] => Mux3.IN18
+data[1] => Mux4.IN18
+data[1] => Mux5.IN18
+data[1] => Mux6.IN18
+data[2] => Mux0.IN17
+data[2] => Mux1.IN17
+data[2] => Mux2.IN17
+data[2] => Mux3.IN17
+data[2] => Mux4.IN17
+data[2] => Mux5.IN17
+data[2] => Mux6.IN17
+data[3] => Mux0.IN16
+data[3] => Mux1.IN16
+data[3] => Mux2.IN16
+data[3] => Mux3.IN16
+data[3] => Mux4.IN16
+data[3] => Mux5.IN16
+data[3] => Mux6.IN16
+seg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|DecSeg:DecHEX4
+data[0] => Mux0.IN19
+data[0] => Mux1.IN19
+data[0] => Mux2.IN19
+data[0] => Mux3.IN19
+data[0] => Mux4.IN19
+data[0] => Mux5.IN19
+data[0] => Mux6.IN19
+data[1] => Mux0.IN18
+data[1] => Mux1.IN18
+data[1] => Mux2.IN18
+data[1] => Mux3.IN18
+data[1] => Mux4.IN18
+data[1] => Mux5.IN18
+data[1] => Mux6.IN18
+data[2] => Mux0.IN17
+data[2] => Mux1.IN17
+data[2] => Mux2.IN17
+data[2] => Mux3.IN17
+data[2] => Mux4.IN17
+data[2] => Mux5.IN17
+data[2] => Mux6.IN17
+data[3] => Mux0.IN16
+data[3] => Mux1.IN16
+data[3] => Mux2.IN16
+data[3] => Mux3.IN16
+data[3] => Mux4.IN16
+data[3] => Mux5.IN16
+data[3] => Mux6.IN16
+seg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|DecSeg:DecHEX5
+data[0] => Mux0.IN19
+data[0] => Mux1.IN19
+data[0] => Mux2.IN19
+data[0] => Mux3.IN19
+data[0] => Mux4.IN19
+data[0] => Mux5.IN19
+data[0] => Mux6.IN19
+data[1] => Mux0.IN18
+data[1] => Mux1.IN18
+data[1] => Mux2.IN18
+data[1] => Mux3.IN18
+data[1] => Mux4.IN18
+data[1] => Mux5.IN18
+data[1] => Mux6.IN18
+data[2] => Mux0.IN17
+data[2] => Mux1.IN17
+data[2] => Mux2.IN17
+data[2] => Mux3.IN17
+data[2] => Mux4.IN17
+data[2] => Mux5.IN17
+data[2] => Mux6.IN17
+data[3] => Mux0.IN16
+data[3] => Mux1.IN16
+data[3] => Mux2.IN16
+data[3] => Mux3.IN16
+data[3] => Mux4.IN16
+data[3] => Mux5.IN16
+data[3] => Mux6.IN16
+seg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|InCtrl:InputCtrl
+address[0] => Equal0.IN15
+address[0] => Equal1.IN0
+address[1] => Equal0.IN14
+address[1] => Equal1.IN15
+address[2] => Equal0.IN13
+address[2] => Equal1.IN14
+address[3] => Equal0.IN12
+address[3] => Equal1.IN13
+address[4] => Equal0.IN11
+address[4] => Equal1.IN12
+address[5] => Equal0.IN10
+address[5] => Equal1.IN11
+address[6] => Equal0.IN9
+address[6] => Equal1.IN10
+address[7] => Equal0.IN8
+address[7] => Equal1.IN9
+address[8] => Equal0.IN7
+address[8] => Equal1.IN8
+address[9] => Equal0.IN6
+address[9] => Equal1.IN7
+address[10] => Equal0.IN5
+address[10] => Equal1.IN6
+address[11] => Equal0.IN4
+address[11] => Equal1.IN5
+address[12] => Equal0.IN3
+address[12] => Equal1.IN4
+address[13] => Equal0.IN2
+address[13] => Equal1.IN3
+address[14] => Equal0.IN1
+address[14] => Equal1.IN2
+address[15] => Equal0.IN0
+address[15] => Equal1.IN1
+sel[0] <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+sel[1] <= sel.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|KEYEnc4:keyenc
+clock => keyout_buf[0].CLK
+clock => keyout_buf[1].CLK
+clock => keyout_buf[2].CLK
+clock => keyout_buf[3].CLK
+clock => keyin_buf[0].CLK
+clock => keyin_buf[1].CLK
+clock => keyin_buf[2].CLK
+clock => keyin_buf[3].CLK
+clock => clock_count[0].CLK
+clock => clock_count[1].CLK
+clock => clock_count[2].CLK
+clock => clock_count[3].CLK
+reset => keyout_buf[0].ACLR
+reset => keyout_buf[1].ACLR
+reset => keyout_buf[2].ACLR
+reset => keyout_buf[3].ACLR
+reset => keyin_buf[0].ACLR
+reset => keyin_buf[1].ACLR
+reset => keyin_buf[2].ACLR
+reset => keyin_buf[3].ACLR
+reset => clock_count[0].ACLR
+reset => clock_count[1].ACLR
+reset => clock_count[2].ACLR
+reset => clock_count[3].ACLR
+keyin[0] => Equal1.IN3
+keyin[0] => keyin_buf[0].DATAIN
+keyin[1] => Equal1.IN2
+keyin[1] => keyin_buf[1].DATAIN
+keyin[2] => Equal1.IN1
+keyin[2] => keyin_buf[2].DATAIN
+keyin[3] => Equal1.IN0
+keyin[3] => keyin_buf[3].DATAIN
+keyout[0] <= keyout_buf[0].DB_MAX_OUTPUT_PORT_TYPE
+keyout[1] <= keyout_buf[1].DB_MAX_OUTPUT_PORT_TYPE
+keyout[2] <= keyout_buf[2].DB_MAX_OUTPUT_PORT_TYPE
+keyout[3] <= keyout_buf[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|rom1p:rom
+address[0] => altsyncram:altsyncram_component.address_a[0]
+address[1] => altsyncram:altsyncram_component.address_a[1]
+address[2] => altsyncram:altsyncram_component.address_a[2]
+address[3] => altsyncram:altsyncram_component.address_a[3]
+address[4] => altsyncram:altsyncram_component.address_a[4]
+address[5] => altsyncram:altsyncram_component.address_a[5]
+address[6] => altsyncram:altsyncram_component.address_a[6]
+address[7] => altsyncram:altsyncram_component.address_a[7]
+address[8] => altsyncram:altsyncram_component.address_a[8]
+address[9] => altsyncram:altsyncram_component.address_a[9]
+clock => altsyncram:altsyncram_component.clock0
+rden => altsyncram:altsyncram_component.rden_a
+q[0] <= altsyncram:altsyncram_component.q_a[0]
+q[1] <= altsyncram:altsyncram_component.q_a[1]
+q[2] <= altsyncram:altsyncram_component.q_a[2]
+q[3] <= altsyncram:altsyncram_component.q_a[3]
+q[4] <= altsyncram:altsyncram_component.q_a[4]
+q[5] <= altsyncram:altsyncram_component.q_a[5]
+q[6] <= altsyncram:altsyncram_component.q_a[6]
+q[7] <= altsyncram:altsyncram_component.q_a[7]
+
+
+|CPUCircuit|rom1p:rom|altsyncram:altsyncram_component
+wren_a => ~NO_FANOUT~
+rden_a => altsyncram_5o34:auto_generated.rden_a
+wren_b => ~NO_FANOUT~
+rden_b => ~NO_FANOUT~
+data_a[0] => ~NO_FANOUT~
+data_a[1] => ~NO_FANOUT~
+data_a[2] => ~NO_FANOUT~
+data_a[3] => ~NO_FANOUT~
+data_a[4] => ~NO_FANOUT~
+data_a[5] => ~NO_FANOUT~
+data_a[6] => ~NO_FANOUT~
+data_a[7] => ~NO_FANOUT~
+data_b[0] => ~NO_FANOUT~
+address_a[0] => altsyncram_5o34:auto_generated.address_a[0]
+address_a[1] => altsyncram_5o34:auto_generated.address_a[1]
+address_a[2] => altsyncram_5o34:auto_generated.address_a[2]
+address_a[3] => altsyncram_5o34:auto_generated.address_a[3]
+address_a[4] => altsyncram_5o34:auto_generated.address_a[4]
+address_a[5] => altsyncram_5o34:auto_generated.address_a[5]
+address_a[6] => altsyncram_5o34:auto_generated.address_a[6]
+address_a[7] => altsyncram_5o34:auto_generated.address_a[7]
+address_a[8] => altsyncram_5o34:auto_generated.address_a[8]
+address_a[9] => altsyncram_5o34:auto_generated.address_a[9]
+address_b[0] => ~NO_FANOUT~
+addressstall_a => ~NO_FANOUT~
+addressstall_b => ~NO_FANOUT~
+clock0 => altsyncram_5o34:auto_generated.clock0
+clock1 => ~NO_FANOUT~
+clocken0 => ~NO_FANOUT~
+clocken1 => ~NO_FANOUT~
+clocken2 => ~NO_FANOUT~
+clocken3 => ~NO_FANOUT~
+aclr0 => ~NO_FANOUT~
+aclr1 => ~NO_FANOUT~
+byteena_a[0] => ~NO_FANOUT~
+byteena_b[0] => ~NO_FANOUT~
+q_a[0] <= altsyncram_5o34:auto_generated.q_a[0]
+q_a[1] <= altsyncram_5o34:auto_generated.q_a[1]
+q_a[2] <= altsyncram_5o34:auto_generated.q_a[2]
+q_a[3] <= altsyncram_5o34:auto_generated.q_a[3]
+q_a[4] <= altsyncram_5o34:auto_generated.q_a[4]
+q_a[5] <= altsyncram_5o34:auto_generated.q_a[5]
+q_a[6] <= altsyncram_5o34:auto_generated.q_a[6]
+q_a[7] <= altsyncram_5o34:auto_generated.q_a[7]
+q_b[0] <= <GND>
+eccstatus[0] <= <GND>
+eccstatus[1] <= <GND>
+eccstatus[2] <= <GND>
+
+
+|CPUCircuit|rom1p:rom|altsyncram:altsyncram_component|altsyncram_5o34:auto_generated
+address_a[0] => altsyncram_fb43:altsyncram1.address_a[0]
+address_a[1] => altsyncram_fb43:altsyncram1.address_a[1]
+address_a[2] => altsyncram_fb43:altsyncram1.address_a[2]
+address_a[3] => altsyncram_fb43:altsyncram1.address_a[3]
+address_a[4] => altsyncram_fb43:altsyncram1.address_a[4]
+address_a[5] => altsyncram_fb43:altsyncram1.address_a[5]
+address_a[6] => altsyncram_fb43:altsyncram1.address_a[6]
+address_a[7] => altsyncram_fb43:altsyncram1.address_a[7]
+address_a[8] => altsyncram_fb43:altsyncram1.address_a[8]
+address_a[9] => altsyncram_fb43:altsyncram1.address_a[9]
+clock0 => altsyncram_fb43:altsyncram1.clock0
+q_a[0] <= altsyncram_fb43:altsyncram1.q_a[0]
+q_a[1] <= altsyncram_fb43:altsyncram1.q_a[1]
+q_a[2] <= altsyncram_fb43:altsyncram1.q_a[2]
+q_a[3] <= altsyncram_fb43:altsyncram1.q_a[3]
+q_a[4] <= altsyncram_fb43:altsyncram1.q_a[4]
+q_a[5] <= altsyncram_fb43:altsyncram1.q_a[5]
+q_a[6] <= altsyncram_fb43:altsyncram1.q_a[6]
+q_a[7] <= altsyncram_fb43:altsyncram1.q_a[7]
+rden_a => altsyncram_fb43:altsyncram1.rden_a
+
+
+|CPUCircuit|rom1p:rom|altsyncram:altsyncram_component|altsyncram_5o34:auto_generated|altsyncram_fb43:altsyncram1
+address_a[0] => ram_block3a0.PORTAADDR
+address_a[0] => ram_block3a1.PORTAADDR
+address_a[0] => ram_block3a2.PORTAADDR
+address_a[0] => ram_block3a3.PORTAADDR
+address_a[0] => ram_block3a4.PORTAADDR
+address_a[0] => ram_block3a5.PORTAADDR
+address_a[0] => ram_block3a6.PORTAADDR
+address_a[0] => ram_block3a7.PORTAADDR
+address_a[1] => ram_block3a0.PORTAADDR1
+address_a[1] => ram_block3a1.PORTAADDR1
+address_a[1] => ram_block3a2.PORTAADDR1
+address_a[1] => ram_block3a3.PORTAADDR1
+address_a[1] => ram_block3a4.PORTAADDR1
+address_a[1] => ram_block3a5.PORTAADDR1
+address_a[1] => ram_block3a6.PORTAADDR1
+address_a[1] => ram_block3a7.PORTAADDR1
+address_a[2] => ram_block3a0.PORTAADDR2
+address_a[2] => ram_block3a1.PORTAADDR2
+address_a[2] => ram_block3a2.PORTAADDR2
+address_a[2] => ram_block3a3.PORTAADDR2
+address_a[2] => ram_block3a4.PORTAADDR2
+address_a[2] => ram_block3a5.PORTAADDR2
+address_a[2] => ram_block3a6.PORTAADDR2
+address_a[2] => ram_block3a7.PORTAADDR2
+address_a[3] => ram_block3a0.PORTAADDR3
+address_a[3] => ram_block3a1.PORTAADDR3
+address_a[3] => ram_block3a2.PORTAADDR3
+address_a[3] => ram_block3a3.PORTAADDR3
+address_a[3] => ram_block3a4.PORTAADDR3
+address_a[3] => ram_block3a5.PORTAADDR3
+address_a[3] => ram_block3a6.PORTAADDR3
+address_a[3] => ram_block3a7.PORTAADDR3
+address_a[4] => ram_block3a0.PORTAADDR4
+address_a[4] => ram_block3a1.PORTAADDR4
+address_a[4] => ram_block3a2.PORTAADDR4
+address_a[4] => ram_block3a3.PORTAADDR4
+address_a[4] => ram_block3a4.PORTAADDR4
+address_a[4] => ram_block3a5.PORTAADDR4
+address_a[4] => ram_block3a6.PORTAADDR4
+address_a[4] => ram_block3a7.PORTAADDR4
+address_a[5] => ram_block3a0.PORTAADDR5
+address_a[5] => ram_block3a1.PORTAADDR5
+address_a[5] => ram_block3a2.PORTAADDR5
+address_a[5] => ram_block3a3.PORTAADDR5
+address_a[5] => ram_block3a4.PORTAADDR5
+address_a[5] => ram_block3a5.PORTAADDR5
+address_a[5] => ram_block3a6.PORTAADDR5
+address_a[5] => ram_block3a7.PORTAADDR5
+address_a[6] => ram_block3a0.PORTAADDR6
+address_a[6] => ram_block3a1.PORTAADDR6
+address_a[6] => ram_block3a2.PORTAADDR6
+address_a[6] => ram_block3a3.PORTAADDR6
+address_a[6] => ram_block3a4.PORTAADDR6
+address_a[6] => ram_block3a5.PORTAADDR6
+address_a[6] => ram_block3a6.PORTAADDR6
+address_a[6] => ram_block3a7.PORTAADDR6
+address_a[7] => ram_block3a0.PORTAADDR7
+address_a[7] => ram_block3a1.PORTAADDR7
+address_a[7] => ram_block3a2.PORTAADDR7
+address_a[7] => ram_block3a3.PORTAADDR7
+address_a[7] => ram_block3a4.PORTAADDR7
+address_a[7] => ram_block3a5.PORTAADDR7
+address_a[7] => ram_block3a6.PORTAADDR7
+address_a[7] => ram_block3a7.PORTAADDR7
+address_a[8] => ram_block3a0.PORTAADDR8
+address_a[8] => ram_block3a1.PORTAADDR8
+address_a[8] => ram_block3a2.PORTAADDR8
+address_a[8] => ram_block3a3.PORTAADDR8
+address_a[8] => ram_block3a4.PORTAADDR8
+address_a[8] => ram_block3a5.PORTAADDR8
+address_a[8] => ram_block3a6.PORTAADDR8
+address_a[8] => ram_block3a7.PORTAADDR8
+address_a[9] => ram_block3a0.PORTAADDR9
+address_a[9] => ram_block3a1.PORTAADDR9
+address_a[9] => ram_block3a2.PORTAADDR9
+address_a[9] => ram_block3a3.PORTAADDR9
+address_a[9] => ram_block3a4.PORTAADDR9
+address_a[9] => ram_block3a5.PORTAADDR9
+address_a[9] => ram_block3a6.PORTAADDR9
+address_a[9] => ram_block3a7.PORTAADDR9
+address_b[0] => ram_block3a0.PORTBADDR
+address_b[0] => ram_block3a1.PORTBADDR
+address_b[0] => ram_block3a2.PORTBADDR
+address_b[0] => ram_block3a3.PORTBADDR
+address_b[0] => ram_block3a4.PORTBADDR
+address_b[0] => ram_block3a5.PORTBADDR
+address_b[0] => ram_block3a6.PORTBADDR
+address_b[0] => ram_block3a7.PORTBADDR
+address_b[1] => ram_block3a0.PORTBADDR1
+address_b[1] => ram_block3a1.PORTBADDR1
+address_b[1] => ram_block3a2.PORTBADDR1
+address_b[1] => ram_block3a3.PORTBADDR1
+address_b[1] => ram_block3a4.PORTBADDR1
+address_b[1] => ram_block3a5.PORTBADDR1
+address_b[1] => ram_block3a6.PORTBADDR1
+address_b[1] => ram_block3a7.PORTBADDR1
+address_b[2] => ram_block3a0.PORTBADDR2
+address_b[2] => ram_block3a1.PORTBADDR2
+address_b[2] => ram_block3a2.PORTBADDR2
+address_b[2] => ram_block3a3.PORTBADDR2
+address_b[2] => ram_block3a4.PORTBADDR2
+address_b[2] => ram_block3a5.PORTBADDR2
+address_b[2] => ram_block3a6.PORTBADDR2
+address_b[2] => ram_block3a7.PORTBADDR2
+address_b[3] => ram_block3a0.PORTBADDR3
+address_b[3] => ram_block3a1.PORTBADDR3
+address_b[3] => ram_block3a2.PORTBADDR3
+address_b[3] => ram_block3a3.PORTBADDR3
+address_b[3] => ram_block3a4.PORTBADDR3
+address_b[3] => ram_block3a5.PORTBADDR3
+address_b[3] => ram_block3a6.PORTBADDR3
+address_b[3] => ram_block3a7.PORTBADDR3
+address_b[4] => ram_block3a0.PORTBADDR4
+address_b[4] => ram_block3a1.PORTBADDR4
+address_b[4] => ram_block3a2.PORTBADDR4
+address_b[4] => ram_block3a3.PORTBADDR4
+address_b[4] => ram_block3a4.PORTBADDR4
+address_b[4] => ram_block3a5.PORTBADDR4
+address_b[4] => ram_block3a6.PORTBADDR4
+address_b[4] => ram_block3a7.PORTBADDR4
+address_b[5] => ram_block3a0.PORTBADDR5
+address_b[5] => ram_block3a1.PORTBADDR5
+address_b[5] => ram_block3a2.PORTBADDR5
+address_b[5] => ram_block3a3.PORTBADDR5
+address_b[5] => ram_block3a4.PORTBADDR5
+address_b[5] => ram_block3a5.PORTBADDR5
+address_b[5] => ram_block3a6.PORTBADDR5
+address_b[5] => ram_block3a7.PORTBADDR5
+address_b[6] => ram_block3a0.PORTBADDR6
+address_b[6] => ram_block3a1.PORTBADDR6
+address_b[6] => ram_block3a2.PORTBADDR6
+address_b[6] => ram_block3a3.PORTBADDR6
+address_b[6] => ram_block3a4.PORTBADDR6
+address_b[6] => ram_block3a5.PORTBADDR6
+address_b[6] => ram_block3a6.PORTBADDR6
+address_b[6] => ram_block3a7.PORTBADDR6
+address_b[7] => ram_block3a0.PORTBADDR7
+address_b[7] => ram_block3a1.PORTBADDR7
+address_b[7] => ram_block3a2.PORTBADDR7
+address_b[7] => ram_block3a3.PORTBADDR7
+address_b[7] => ram_block3a4.PORTBADDR7
+address_b[7] => ram_block3a5.PORTBADDR7
+address_b[7] => ram_block3a6.PORTBADDR7
+address_b[7] => ram_block3a7.PORTBADDR7
+address_b[8] => ram_block3a0.PORTBADDR8
+address_b[8] => ram_block3a1.PORTBADDR8
+address_b[8] => ram_block3a2.PORTBADDR8
+address_b[8] => ram_block3a3.PORTBADDR8
+address_b[8] => ram_block3a4.PORTBADDR8
+address_b[8] => ram_block3a5.PORTBADDR8
+address_b[8] => ram_block3a6.PORTBADDR8
+address_b[8] => ram_block3a7.PORTBADDR8
+address_b[9] => ram_block3a0.PORTBADDR9
+address_b[9] => ram_block3a1.PORTBADDR9
+address_b[9] => ram_block3a2.PORTBADDR9
+address_b[9] => ram_block3a3.PORTBADDR9
+address_b[9] => ram_block3a4.PORTBADDR9
+address_b[9] => ram_block3a5.PORTBADDR9
+address_b[9] => ram_block3a6.PORTBADDR9
+address_b[9] => ram_block3a7.PORTBADDR9
+clock0 => ram_block3a0.CLK0
+clock0 => ram_block3a1.CLK0
+clock0 => ram_block3a2.CLK0
+clock0 => ram_block3a3.CLK0
+clock0 => ram_block3a4.CLK0
+clock0 => ram_block3a5.CLK0
+clock0 => ram_block3a6.CLK0
+clock0 => ram_block3a7.CLK0
+clock1 => ram_block3a0.CLK1
+clock1 => ram_block3a1.CLK1
+clock1 => ram_block3a2.CLK1
+clock1 => ram_block3a3.CLK1
+clock1 => ram_block3a4.CLK1
+clock1 => ram_block3a5.CLK1
+clock1 => ram_block3a6.CLK1
+clock1 => ram_block3a7.CLK1
+data_b[0] => ram_block3a0.PORTBDATAIN
+data_b[1] => ram_block3a1.PORTBDATAIN
+data_b[2] => ram_block3a2.PORTBDATAIN
+data_b[3] => ram_block3a3.PORTBDATAIN
+data_b[4] => ram_block3a4.PORTBDATAIN
+data_b[5] => ram_block3a5.PORTBDATAIN
+data_b[6] => ram_block3a6.PORTBDATAIN
+data_b[7] => ram_block3a7.PORTBDATAIN
+q_a[0] <= ram_block3a0.PORTADATAOUT
+q_a[1] <= ram_block3a1.PORTADATAOUT
+q_a[2] <= ram_block3a2.PORTADATAOUT
+q_a[3] <= ram_block3a3.PORTADATAOUT
+q_a[4] <= ram_block3a4.PORTADATAOUT
+q_a[5] <= ram_block3a5.PORTADATAOUT
+q_a[6] <= ram_block3a6.PORTADATAOUT
+q_a[7] <= ram_block3a7.PORTADATAOUT
+q_b[0] <= ram_block3a0.PORTBDATAOUT
+q_b[1] <= ram_block3a1.PORTBDATAOUT
+q_b[2] <= ram_block3a2.PORTBDATAOUT
+q_b[3] <= ram_block3a3.PORTBDATAOUT
+q_b[4] <= ram_block3a4.PORTBDATAOUT
+q_b[5] <= ram_block3a5.PORTBDATAOUT
+q_b[6] <= ram_block3a6.PORTBDATAOUT
+q_b[7] <= ram_block3a7.PORTBDATAOUT
+rden_a => ram_block3a0.PORTARE
+rden_a => ram_block3a1.PORTARE
+rden_a => ram_block3a2.PORTARE
+rden_a => ram_block3a3.PORTARE
+rden_a => ram_block3a4.PORTARE
+rden_a => ram_block3a5.PORTARE
+rden_a => ram_block3a6.PORTARE
+rden_a => ram_block3a7.PORTARE
+wren_b => ram_block3a0.PORTBWE
+wren_b => ram_block3a1.PORTBWE
+wren_b => ram_block3a2.PORTBWE
+wren_b => ram_block3a3.PORTBWE
+wren_b => ram_block3a4.PORTBWE
+wren_b => ram_block3a5.PORTBWE
+wren_b => ram_block3a6.PORTBWE
+wren_b => ram_block3a7.PORTBWE
+
+
+|CPUCircuit|rom1p:rom|altsyncram:altsyncram_component|altsyncram_5o34:auto_generated|sld_mod_ram_rom:mgl_prim2
+tck_usr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tck
+address[0] <= ram_rom_addr_reg[0].DB_MAX_OUTPUT_PORT_TYPE
+address[1] <= ram_rom_addr_reg[1].DB_MAX_OUTPUT_PORT_TYPE
+address[2] <= ram_rom_addr_reg[2].DB_MAX_OUTPUT_PORT_TYPE
+address[3] <= ram_rom_addr_reg[3].DB_MAX_OUTPUT_PORT_TYPE
+address[4] <= ram_rom_addr_reg[4].DB_MAX_OUTPUT_PORT_TYPE
+address[5] <= ram_rom_addr_reg[5].DB_MAX_OUTPUT_PORT_TYPE
+address[6] <= ram_rom_addr_reg[6].DB_MAX_OUTPUT_PORT_TYPE
+address[7] <= ram_rom_addr_reg[7].DB_MAX_OUTPUT_PORT_TYPE
+address[8] <= ram_rom_addr_reg[8].DB_MAX_OUTPUT_PORT_TYPE
+address[9] <= ram_rom_addr_reg[9].DB_MAX_OUTPUT_PORT_TYPE
+enable_write <= enable_write.DB_MAX_OUTPUT_PORT_TYPE
+data_write[0] <= ram_rom_data_reg[0].DB_MAX_OUTPUT_PORT_TYPE
+data_write[1] <= ram_rom_data_reg[1].DB_MAX_OUTPUT_PORT_TYPE
+data_write[2] <= ram_rom_data_reg[2].DB_MAX_OUTPUT_PORT_TYPE
+data_write[3] <= ram_rom_data_reg[3].DB_MAX_OUTPUT_PORT_TYPE
+data_write[4] <= ram_rom_data_reg[4].DB_MAX_OUTPUT_PORT_TYPE
+data_write[5] <= ram_rom_data_reg[5].DB_MAX_OUTPUT_PORT_TYPE
+data_write[6] <= ram_rom_data_reg[6].DB_MAX_OUTPUT_PORT_TYPE
+data_write[7] <= ram_rom_data_reg[7].DB_MAX_OUTPUT_PORT_TYPE
+data_read[0] => ram_rom_data_reg.DATAB
+data_read[1] => ram_rom_data_reg.DATAB
+data_read[2] => ram_rom_data_reg.DATAB
+data_read[3] => ram_rom_data_reg.DATAB
+data_read[4] => ram_rom_data_reg.DATAB
+data_read[5] => ram_rom_data_reg.DATAB
+data_read[6] => ram_rom_data_reg.DATAB
+data_read[7] => ram_rom_data_reg.DATAB
+adapter_ready => ~NO_FANOUT~
+adapter_valid => ~NO_FANOUT~
+adapter_queue_size[0] => ~NO_FANOUT~
+adapter_queue_size[1] => ~NO_FANOUT~
+adapter_queue_size[2] => ~NO_FANOUT~
+adapter_queue_size[3] => ~NO_FANOUT~
+adapter_queue_size[4] => ~NO_FANOUT~
+adapter_reset <= <GND>
+sld_ready <= <GND>
+sld_valid <= <GND>
+clr_out <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_clr
+raw_tck => sld_jtag_endpoint_adapter:jtag_signal_adapter.raw_tck
+tdi => sld_jtag_endpoint_adapter:jtag_signal_adapter.tdi
+usr1 => sld_jtag_endpoint_adapter:jtag_signal_adapter.usr1
+jtag_state_cdr => sld_jtag_endpoint_adapter:jtag_signal_adapter.jtag_state_cdr
+jtag_state_sdr => sld_jtag_endpoint_adapter:jtag_signal_adapter.jtag_state_sdr
+jtag_state_e1dr => sld_jtag_endpoint_adapter:jtag_signal_adapter.jtag_state_e1dr
+jtag_state_udr => sld_jtag_endpoint_adapter:jtag_signal_adapter.jtag_state_udr
+jtag_state_uir => sld_jtag_endpoint_adapter:jtag_signal_adapter.jtag_state_uir
+clr => sld_jtag_endpoint_adapter:jtag_signal_adapter.clr
+ena => sld_jtag_endpoint_adapter:jtag_signal_adapter.ena
+ena => bypass_reg_out.ENA
+ir_in[0] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[0]
+ir_in[1] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[1]
+ir_in[2] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[2]
+ir_in[3] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[3]
+ir_in[4] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[4]
+ir_in[5] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[5]
+ir_in[6] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[6]
+ir_in[7] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[7]
+ir_out[0] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[0]
+ir_out[1] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[1]
+ir_out[2] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[2]
+ir_out[3] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[3]
+ir_out[4] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[4]
+ir_out[5] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[5]
+ir_out[6] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[6]
+ir_out[7] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[7]
+tdo <= sld_jtag_endpoint_adapter:jtag_signal_adapter.tdo
+
+
+|CPUCircuit|rom1p:rom|altsyncram:altsyncram_component|altsyncram_5o34:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter
+raw_tck => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.raw_tck
+raw_tms => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.raw_tms
+tdi => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.tdi
+vir_tdi => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.vir_tdi
+jtag_state_tlr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_tlr
+jtag_state_rti => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_rti
+jtag_state_sdrs => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sdrs
+jtag_state_cdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_cdr
+jtag_state_sdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sdr
+jtag_state_e1dr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e1dr
+jtag_state_pdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_pdr
+jtag_state_e2dr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e2dr
+jtag_state_udr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_udr
+jtag_state_sirs => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sirs
+jtag_state_cir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_cir
+jtag_state_sir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sir
+jtag_state_e1ir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e1ir
+jtag_state_pir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_pir
+jtag_state_e2ir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e2ir
+jtag_state_uir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_uir
+usr1 => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.usr1
+clr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.clr
+ena => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ena
+ir_in[0] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[0]
+ir_in[1] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[1]
+ir_in[2] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[2]
+ir_in[3] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[3]
+ir_in[4] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[4]
+ir_in[5] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[5]
+ir_in[6] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[6]
+ir_in[7] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[7]
+tdo <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.tdo
+ir_out[0] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[0]
+ir_out[1] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[1]
+ir_out[2] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[2]
+ir_out[3] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[3]
+ir_out[4] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[4]
+ir_out[5] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[5]
+ir_out[6] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[6]
+ir_out[7] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[7]
+adapted_tck <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tck
+adapted_tms <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tms
+adapted_tdi <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tdi
+adapted_vir_tdi <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_vir_tdi
+adapted_jtag_state_tlr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_tlr
+adapted_jtag_state_rti <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_rti
+adapted_jtag_state_sdrs <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sdrs
+adapted_jtag_state_cdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_cdr
+adapted_jtag_state_sdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sdr
+adapted_jtag_state_e1dr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e1dr
+adapted_jtag_state_pdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_pdr
+adapted_jtag_state_e2dr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e2dr
+adapted_jtag_state_udr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_udr
+adapted_jtag_state_sirs <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sirs
+adapted_jtag_state_cir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_cir
+adapted_jtag_state_sir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sir
+adapted_jtag_state_e1ir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e1ir
+adapted_jtag_state_pir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_pir
+adapted_jtag_state_e2ir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e2ir
+adapted_jtag_state_uir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_uir
+adapted_usr1 <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_usr1
+adapted_clr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_clr
+adapted_ena <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ena
+adapted_ir_in[0] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[0]
+adapted_ir_in[1] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[1]
+adapted_ir_in[2] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[2]
+adapted_ir_in[3] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[3]
+adapted_ir_in[4] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[4]
+adapted_ir_in[5] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[5]
+adapted_ir_in[6] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[6]
+adapted_ir_in[7] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[7]
+adapted_tdo => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tdo
+adapted_ir_out[0] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[0]
+adapted_ir_out[1] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[1]
+adapted_ir_out[2] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[2]
+adapted_ir_out[3] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[3]
+adapted_ir_out[4] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[4]
+adapted_ir_out[5] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[5]
+adapted_ir_out[6] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[6]
+adapted_ir_out[7] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[7]
+
+
+|CPUCircuit|rom1p:rom|altsyncram:altsyncram_component|altsyncram_5o34:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst
+raw_tck => adapted_tck.DATAIN
+raw_tms => adapted_tms.DATAIN
+tdi => adapted_tdi.DATAIN
+vir_tdi => adapted_vir_tdi.DATAIN
+jtag_state_tlr => adapted_jtag_state_tlr.DATAIN
+jtag_state_rti => adapted_jtag_state_rti.DATAIN
+jtag_state_sdrs => adapted_jtag_state_sdrs.DATAIN
+jtag_state_cdr => adapted_jtag_state_cdr.DATAIN
+jtag_state_sdr => adapted_jtag_state_sdr.DATAIN
+jtag_state_e1dr => adapted_jtag_state_e1dr.DATAIN
+jtag_state_pdr => adapted_jtag_state_pdr.DATAIN
+jtag_state_e2dr => adapted_jtag_state_e2dr.DATAIN
+jtag_state_udr => adapted_jtag_state_udr.DATAIN
+jtag_state_sirs => adapted_jtag_state_sirs.DATAIN
+jtag_state_cir => adapted_jtag_state_cir.DATAIN
+jtag_state_sir => adapted_jtag_state_sir.DATAIN
+jtag_state_e1ir => adapted_jtag_state_e1ir.DATAIN
+jtag_state_pir => adapted_jtag_state_pir.DATAIN
+jtag_state_e2ir => adapted_jtag_state_e2ir.DATAIN
+jtag_state_uir => adapted_jtag_state_uir.DATAIN
+usr1 => adapted_usr1.DATAIN
+clr => adapted_clr.DATAIN
+ena => adapted_ena.DATAIN
+ir_in[0] => adapted_ir_in[0].DATAIN
+ir_in[1] => adapted_ir_in[1].DATAIN
+ir_in[2] => adapted_ir_in[2].DATAIN
+ir_in[3] => adapted_ir_in[3].DATAIN
+ir_in[4] => adapted_ir_in[4].DATAIN
+ir_in[5] => adapted_ir_in[5].DATAIN
+ir_in[6] => adapted_ir_in[6].DATAIN
+ir_in[7] => adapted_ir_in[7].DATAIN
+tdo <= adapted_tdo.DB_MAX_OUTPUT_PORT_TYPE
+ir_out[0] <= adapted_ir_out[0].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[1] <= adapted_ir_out[1].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[2] <= adapted_ir_out[2].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[3] <= adapted_ir_out[3].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[4] <= adapted_ir_out[4].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[5] <= adapted_ir_out[5].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[6] <= adapted_ir_out[6].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[7] <= adapted_ir_out[7].DB_MAX_OUTPUT_PORT_TYPE
+adapted_tck <= raw_tck.DB_MAX_OUTPUT_PORT_TYPE
+adapted_tms <= raw_tms.DB_MAX_OUTPUT_PORT_TYPE
+adapted_tdi <= tdi.DB_MAX_OUTPUT_PORT_TYPE
+adapted_vir_tdi <= vir_tdi.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_tlr <= jtag_state_tlr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_rti <= jtag_state_rti.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sdrs <= jtag_state_sdrs.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_cdr <= jtag_state_cdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sdr <= jtag_state_sdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e1dr <= jtag_state_e1dr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_pdr <= jtag_state_pdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e2dr <= jtag_state_e2dr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_udr <= jtag_state_udr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sirs <= jtag_state_sirs.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_cir <= jtag_state_cir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sir <= jtag_state_sir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e1ir <= jtag_state_e1ir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_pir <= jtag_state_pir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e2ir <= jtag_state_e2ir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_uir <= jtag_state_uir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_usr1 <= usr1.DB_MAX_OUTPUT_PORT_TYPE
+adapted_clr <= clr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_ena <= ena.DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[0] <= ir_in[0].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[1] <= ir_in[1].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[2] <= ir_in[2].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[3] <= ir_in[3].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[4] <= ir_in[4].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[5] <= ir_in[5].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[6] <= ir_in[6].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[7] <= ir_in[7].DB_MAX_OUTPUT_PORT_TYPE
+adapted_tdo => tdo.DATAIN
+adapted_ir_out[0] => ir_out[0].DATAIN
+adapted_ir_out[1] => ir_out[1].DATAIN
+adapted_ir_out[2] => ir_out[2].DATAIN
+adapted_ir_out[3] => ir_out[3].DATAIN
+adapted_ir_out[4] => ir_out[4].DATAIN
+adapted_ir_out[5] => ir_out[5].DATAIN
+adapted_ir_out[6] => ir_out[6].DATAIN
+adapted_ir_out[7] => ir_out[7].DATAIN
+
+
+|CPUCircuit|rom1p:rom|altsyncram:altsyncram_component|altsyncram_5o34:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr
+ROM_DATA[0] => Mux3.IN131
+ROM_DATA[1] => Mux2.IN131
+ROM_DATA[2] => Mux1.IN131
+ROM_DATA[3] => Mux0.IN131
+ROM_DATA[4] => Mux3.IN127
+ROM_DATA[5] => Mux2.IN127
+ROM_DATA[6] => Mux1.IN127
+ROM_DATA[7] => Mux0.IN127
+ROM_DATA[8] => Mux3.IN123
+ROM_DATA[9] => Mux2.IN123
+ROM_DATA[10] => Mux1.IN123
+ROM_DATA[11] => Mux0.IN123
+ROM_DATA[12] => Mux3.IN119
+ROM_DATA[13] => Mux2.IN119
+ROM_DATA[14] => Mux1.IN119
+ROM_DATA[15] => Mux0.IN119
+ROM_DATA[16] => Mux3.IN115
+ROM_DATA[17] => Mux2.IN115
+ROM_DATA[18] => Mux1.IN115
+ROM_DATA[19] => Mux0.IN115
+ROM_DATA[20] => Mux3.IN111
+ROM_DATA[21] => Mux2.IN111
+ROM_DATA[22] => Mux1.IN111
+ROM_DATA[23] => Mux0.IN111
+ROM_DATA[24] => Mux3.IN107
+ROM_DATA[25] => Mux2.IN107
+ROM_DATA[26] => Mux1.IN107
+ROM_DATA[27] => Mux0.IN107
+ROM_DATA[28] => Mux3.IN103
+ROM_DATA[29] => Mux2.IN103
+ROM_DATA[30] => Mux1.IN103
+ROM_DATA[31] => Mux0.IN103
+ROM_DATA[32] => Mux3.IN99
+ROM_DATA[33] => Mux2.IN99
+ROM_DATA[34] => Mux1.IN99
+ROM_DATA[35] => Mux0.IN99
+ROM_DATA[36] => Mux3.IN95
+ROM_DATA[37] => Mux2.IN95
+ROM_DATA[38] => Mux1.IN95
+ROM_DATA[39] => Mux0.IN95
+ROM_DATA[40] => Mux3.IN91
+ROM_DATA[41] => Mux2.IN91
+ROM_DATA[42] => Mux1.IN91
+ROM_DATA[43] => Mux0.IN91
+ROM_DATA[44] => Mux3.IN87
+ROM_DATA[45] => Mux2.IN87
+ROM_DATA[46] => Mux1.IN87
+ROM_DATA[47] => Mux0.IN87
+ROM_DATA[48] => Mux3.IN83
+ROM_DATA[49] => Mux2.IN83
+ROM_DATA[50] => Mux1.IN83
+ROM_DATA[51] => Mux0.IN83
+ROM_DATA[52] => Mux3.IN79
+ROM_DATA[53] => Mux2.IN79
+ROM_DATA[54] => Mux1.IN79
+ROM_DATA[55] => Mux0.IN79
+ROM_DATA[56] => Mux3.IN75
+ROM_DATA[57] => Mux2.IN75
+ROM_DATA[58] => Mux1.IN75
+ROM_DATA[59] => Mux0.IN75
+ROM_DATA[60] => Mux3.IN71
+ROM_DATA[61] => Mux2.IN71
+ROM_DATA[62] => Mux1.IN71
+ROM_DATA[63] => Mux0.IN71
+ROM_DATA[64] => Mux3.IN67
+ROM_DATA[65] => Mux2.IN67
+ROM_DATA[66] => Mux1.IN67
+ROM_DATA[67] => Mux0.IN67
+ROM_DATA[68] => Mux3.IN63
+ROM_DATA[69] => Mux2.IN63
+ROM_DATA[70] => Mux1.IN63
+ROM_DATA[71] => Mux0.IN63
+ROM_DATA[72] => Mux3.IN59
+ROM_DATA[73] => Mux2.IN59
+ROM_DATA[74] => Mux1.IN59
+ROM_DATA[75] => Mux0.IN59
+ROM_DATA[76] => Mux3.IN55
+ROM_DATA[77] => Mux2.IN55
+ROM_DATA[78] => Mux1.IN55
+ROM_DATA[79] => Mux0.IN55
+ROM_DATA[80] => Mux3.IN51
+ROM_DATA[81] => Mux2.IN51
+ROM_DATA[82] => Mux1.IN51
+ROM_DATA[83] => Mux0.IN51
+ROM_DATA[84] => Mux3.IN47
+ROM_DATA[85] => Mux2.IN47
+ROM_DATA[86] => Mux1.IN47
+ROM_DATA[87] => Mux0.IN47
+TCK => WORD_SR[0].CLK
+TCK => WORD_SR[1].CLK
+TCK => WORD_SR[2].CLK
+TCK => WORD_SR[3].CLK
+TCK => word_counter[0].CLK
+TCK => word_counter[1].CLK
+TCK => word_counter[2].CLK
+TCK => word_counter[3].CLK
+TCK => word_counter[4].CLK
+SHIFT => word_counter.OUTPUTSELECT
+SHIFT => word_counter.OUTPUTSELECT
+SHIFT => word_counter.OUTPUTSELECT
+SHIFT => word_counter.OUTPUTSELECT
+SHIFT => word_counter.OUTPUTSELECT
+SHIFT => WORD_SR.OUTPUTSELECT
+SHIFT => WORD_SR.OUTPUTSELECT
+SHIFT => WORD_SR.OUTPUTSELECT
+SHIFT => WORD_SR.OUTPUTSELECT
+UPDATE => clear_signal.IN0
+USR1 => clear_signal.IN1
+ENA => word_counter.OUTPUTSELECT
+ENA => word_counter.OUTPUTSELECT
+ENA => word_counter.OUTPUTSELECT
+ENA => word_counter.OUTPUTSELECT
+ENA => word_counter.OUTPUTSELECT
+ENA => WORD_SR.OUTPUTSELECT
+ENA => WORD_SR.OUTPUTSELECT
+ENA => WORD_SR.OUTPUTSELECT
+ENA => WORD_SR.OUTPUTSELECT
+TDI => WORD_SR.DATAA
+TDO <= WORD_SR[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|ram1p:ram
+address[0] => altsyncram:altsyncram_component.address_a[0]
+address[1] => altsyncram:altsyncram_component.address_a[1]
+address[2] => altsyncram:altsyncram_component.address_a[2]
+address[3] => altsyncram:altsyncram_component.address_a[3]
+address[4] => altsyncram:altsyncram_component.address_a[4]
+address[5] => altsyncram:altsyncram_component.address_a[5]
+address[6] => altsyncram:altsyncram_component.address_a[6]
+address[7] => altsyncram:altsyncram_component.address_a[7]
+clock => altsyncram:altsyncram_component.clock0
+data[0] => altsyncram:altsyncram_component.data_a[0]
+data[1] => altsyncram:altsyncram_component.data_a[1]
+data[2] => altsyncram:altsyncram_component.data_a[2]
+data[3] => altsyncram:altsyncram_component.data_a[3]
+data[4] => altsyncram:altsyncram_component.data_a[4]
+data[5] => altsyncram:altsyncram_component.data_a[5]
+data[6] => altsyncram:altsyncram_component.data_a[6]
+data[7] => altsyncram:altsyncram_component.data_a[7]
+rden => altsyncram:altsyncram_component.rden_a
+wren => altsyncram:altsyncram_component.wren_a
+q[0] <= altsyncram:altsyncram_component.q_a[0]
+q[1] <= altsyncram:altsyncram_component.q_a[1]
+q[2] <= altsyncram:altsyncram_component.q_a[2]
+q[3] <= altsyncram:altsyncram_component.q_a[3]
+q[4] <= altsyncram:altsyncram_component.q_a[4]
+q[5] <= altsyncram:altsyncram_component.q_a[5]
+q[6] <= altsyncram:altsyncram_component.q_a[6]
+q[7] <= altsyncram:altsyncram_component.q_a[7]
+
+
+|CPUCircuit|ram1p:ram|altsyncram:altsyncram_component
+wren_a => altsyncram_e024:auto_generated.wren_a
+rden_a => altsyncram_e024:auto_generated.rden_a
+wren_b => ~NO_FANOUT~
+rden_b => ~NO_FANOUT~
+data_a[0] => altsyncram_e024:auto_generated.data_a[0]
+data_a[1] => altsyncram_e024:auto_generated.data_a[1]
+data_a[2] => altsyncram_e024:auto_generated.data_a[2]
+data_a[3] => altsyncram_e024:auto_generated.data_a[3]
+data_a[4] => altsyncram_e024:auto_generated.data_a[4]
+data_a[5] => altsyncram_e024:auto_generated.data_a[5]
+data_a[6] => altsyncram_e024:auto_generated.data_a[6]
+data_a[7] => altsyncram_e024:auto_generated.data_a[7]
+data_b[0] => ~NO_FANOUT~
+address_a[0] => altsyncram_e024:auto_generated.address_a[0]
+address_a[1] => altsyncram_e024:auto_generated.address_a[1]
+address_a[2] => altsyncram_e024:auto_generated.address_a[2]
+address_a[3] => altsyncram_e024:auto_generated.address_a[3]
+address_a[4] => altsyncram_e024:auto_generated.address_a[4]
+address_a[5] => altsyncram_e024:auto_generated.address_a[5]
+address_a[6] => altsyncram_e024:auto_generated.address_a[6]
+address_a[7] => altsyncram_e024:auto_generated.address_a[7]
+address_b[0] => ~NO_FANOUT~
+addressstall_a => ~NO_FANOUT~
+addressstall_b => ~NO_FANOUT~
+clock0 => altsyncram_e024:auto_generated.clock0
+clock1 => ~NO_FANOUT~
+clocken0 => ~NO_FANOUT~
+clocken1 => ~NO_FANOUT~
+clocken2 => ~NO_FANOUT~
+clocken3 => ~NO_FANOUT~
+aclr0 => ~NO_FANOUT~
+aclr1 => ~NO_FANOUT~
+byteena_a[0] => ~NO_FANOUT~
+byteena_b[0] => ~NO_FANOUT~
+q_a[0] <= altsyncram_e024:auto_generated.q_a[0]
+q_a[1] <= altsyncram_e024:auto_generated.q_a[1]
+q_a[2] <= altsyncram_e024:auto_generated.q_a[2]
+q_a[3] <= altsyncram_e024:auto_generated.q_a[3]
+q_a[4] <= altsyncram_e024:auto_generated.q_a[4]
+q_a[5] <= altsyncram_e024:auto_generated.q_a[5]
+q_a[6] <= altsyncram_e024:auto_generated.q_a[6]
+q_a[7] <= altsyncram_e024:auto_generated.q_a[7]
+q_b[0] <= <GND>
+eccstatus[0] <= <GND>
+eccstatus[1] <= <GND>
+eccstatus[2] <= <GND>
+
+
+|CPUCircuit|ram1p:ram|altsyncram:altsyncram_component|altsyncram_e024:auto_generated
+address_a[0] => altsyncram_vev2:altsyncram1.address_a[0]
+address_a[1] => altsyncram_vev2:altsyncram1.address_a[1]
+address_a[2] => altsyncram_vev2:altsyncram1.address_a[2]
+address_a[3] => altsyncram_vev2:altsyncram1.address_a[3]
+address_a[4] => altsyncram_vev2:altsyncram1.address_a[4]
+address_a[5] => altsyncram_vev2:altsyncram1.address_a[5]
+address_a[6] => altsyncram_vev2:altsyncram1.address_a[6]
+address_a[7] => altsyncram_vev2:altsyncram1.address_a[7]
+clock0 => altsyncram_vev2:altsyncram1.clock0
+data_a[0] => altsyncram_vev2:altsyncram1.data_a[0]
+data_a[1] => altsyncram_vev2:altsyncram1.data_a[1]
+data_a[2] => altsyncram_vev2:altsyncram1.data_a[2]
+data_a[3] => altsyncram_vev2:altsyncram1.data_a[3]
+data_a[4] => altsyncram_vev2:altsyncram1.data_a[4]
+data_a[5] => altsyncram_vev2:altsyncram1.data_a[5]
+data_a[6] => altsyncram_vev2:altsyncram1.data_a[6]
+data_a[7] => altsyncram_vev2:altsyncram1.data_a[7]
+q_a[0] <= altsyncram_vev2:altsyncram1.q_a[0]
+q_a[1] <= altsyncram_vev2:altsyncram1.q_a[1]
+q_a[2] <= altsyncram_vev2:altsyncram1.q_a[2]
+q_a[3] <= altsyncram_vev2:altsyncram1.q_a[3]
+q_a[4] <= altsyncram_vev2:altsyncram1.q_a[4]
+q_a[5] <= altsyncram_vev2:altsyncram1.q_a[5]
+q_a[6] <= altsyncram_vev2:altsyncram1.q_a[6]
+q_a[7] <= altsyncram_vev2:altsyncram1.q_a[7]
+rden_a => altsyncram_vev2:altsyncram1.rden_a
+wren_a => altsyncram_vev2:altsyncram1.wren_a
+
+
+|CPUCircuit|ram1p:ram|altsyncram:altsyncram_component|altsyncram_e024:auto_generated|altsyncram_vev2:altsyncram1
+address_a[0] => ram_block3a0.PORTAADDR
+address_a[0] => ram_block3a1.PORTAADDR
+address_a[0] => ram_block3a2.PORTAADDR
+address_a[0] => ram_block3a3.PORTAADDR
+address_a[0] => ram_block3a4.PORTAADDR
+address_a[0] => ram_block3a5.PORTAADDR
+address_a[0] => ram_block3a6.PORTAADDR
+address_a[0] => ram_block3a7.PORTAADDR
+address_a[1] => ram_block3a0.PORTAADDR1
+address_a[1] => ram_block3a1.PORTAADDR1
+address_a[1] => ram_block3a2.PORTAADDR1
+address_a[1] => ram_block3a3.PORTAADDR1
+address_a[1] => ram_block3a4.PORTAADDR1
+address_a[1] => ram_block3a5.PORTAADDR1
+address_a[1] => ram_block3a6.PORTAADDR1
+address_a[1] => ram_block3a7.PORTAADDR1
+address_a[2] => ram_block3a0.PORTAADDR2
+address_a[2] => ram_block3a1.PORTAADDR2
+address_a[2] => ram_block3a2.PORTAADDR2
+address_a[2] => ram_block3a3.PORTAADDR2
+address_a[2] => ram_block3a4.PORTAADDR2
+address_a[2] => ram_block3a5.PORTAADDR2
+address_a[2] => ram_block3a6.PORTAADDR2
+address_a[2] => ram_block3a7.PORTAADDR2
+address_a[3] => ram_block3a0.PORTAADDR3
+address_a[3] => ram_block3a1.PORTAADDR3
+address_a[3] => ram_block3a2.PORTAADDR3
+address_a[3] => ram_block3a3.PORTAADDR3
+address_a[3] => ram_block3a4.PORTAADDR3
+address_a[3] => ram_block3a5.PORTAADDR3
+address_a[3] => ram_block3a6.PORTAADDR3
+address_a[3] => ram_block3a7.PORTAADDR3
+address_a[4] => ram_block3a0.PORTAADDR4
+address_a[4] => ram_block3a1.PORTAADDR4
+address_a[4] => ram_block3a2.PORTAADDR4
+address_a[4] => ram_block3a3.PORTAADDR4
+address_a[4] => ram_block3a4.PORTAADDR4
+address_a[4] => ram_block3a5.PORTAADDR4
+address_a[4] => ram_block3a6.PORTAADDR4
+address_a[4] => ram_block3a7.PORTAADDR4
+address_a[5] => ram_block3a0.PORTAADDR5
+address_a[5] => ram_block3a1.PORTAADDR5
+address_a[5] => ram_block3a2.PORTAADDR5
+address_a[5] => ram_block3a3.PORTAADDR5
+address_a[5] => ram_block3a4.PORTAADDR5
+address_a[5] => ram_block3a5.PORTAADDR5
+address_a[5] => ram_block3a6.PORTAADDR5
+address_a[5] => ram_block3a7.PORTAADDR5
+address_a[6] => ram_block3a0.PORTAADDR6
+address_a[6] => ram_block3a1.PORTAADDR6
+address_a[6] => ram_block3a2.PORTAADDR6
+address_a[6] => ram_block3a3.PORTAADDR6
+address_a[6] => ram_block3a4.PORTAADDR6
+address_a[6] => ram_block3a5.PORTAADDR6
+address_a[6] => ram_block3a6.PORTAADDR6
+address_a[6] => ram_block3a7.PORTAADDR6
+address_a[7] => ram_block3a0.PORTAADDR7
+address_a[7] => ram_block3a1.PORTAADDR7
+address_a[7] => ram_block3a2.PORTAADDR7
+address_a[7] => ram_block3a3.PORTAADDR7
+address_a[7] => ram_block3a4.PORTAADDR7
+address_a[7] => ram_block3a5.PORTAADDR7
+address_a[7] => ram_block3a6.PORTAADDR7
+address_a[7] => ram_block3a7.PORTAADDR7
+address_b[0] => ram_block3a0.PORTBADDR
+address_b[0] => ram_block3a1.PORTBADDR
+address_b[0] => ram_block3a2.PORTBADDR
+address_b[0] => ram_block3a3.PORTBADDR
+address_b[0] => ram_block3a4.PORTBADDR
+address_b[0] => ram_block3a5.PORTBADDR
+address_b[0] => ram_block3a6.PORTBADDR
+address_b[0] => ram_block3a7.PORTBADDR
+address_b[1] => ram_block3a0.PORTBADDR1
+address_b[1] => ram_block3a1.PORTBADDR1
+address_b[1] => ram_block3a2.PORTBADDR1
+address_b[1] => ram_block3a3.PORTBADDR1
+address_b[1] => ram_block3a4.PORTBADDR1
+address_b[1] => ram_block3a5.PORTBADDR1
+address_b[1] => ram_block3a6.PORTBADDR1
+address_b[1] => ram_block3a7.PORTBADDR1
+address_b[2] => ram_block3a0.PORTBADDR2
+address_b[2] => ram_block3a1.PORTBADDR2
+address_b[2] => ram_block3a2.PORTBADDR2
+address_b[2] => ram_block3a3.PORTBADDR2
+address_b[2] => ram_block3a4.PORTBADDR2
+address_b[2] => ram_block3a5.PORTBADDR2
+address_b[2] => ram_block3a6.PORTBADDR2
+address_b[2] => ram_block3a7.PORTBADDR2
+address_b[3] => ram_block3a0.PORTBADDR3
+address_b[3] => ram_block3a1.PORTBADDR3
+address_b[3] => ram_block3a2.PORTBADDR3
+address_b[3] => ram_block3a3.PORTBADDR3
+address_b[3] => ram_block3a4.PORTBADDR3
+address_b[3] => ram_block3a5.PORTBADDR3
+address_b[3] => ram_block3a6.PORTBADDR3
+address_b[3] => ram_block3a7.PORTBADDR3
+address_b[4] => ram_block3a0.PORTBADDR4
+address_b[4] => ram_block3a1.PORTBADDR4
+address_b[4] => ram_block3a2.PORTBADDR4
+address_b[4] => ram_block3a3.PORTBADDR4
+address_b[4] => ram_block3a4.PORTBADDR4
+address_b[4] => ram_block3a5.PORTBADDR4
+address_b[4] => ram_block3a6.PORTBADDR4
+address_b[4] => ram_block3a7.PORTBADDR4
+address_b[5] => ram_block3a0.PORTBADDR5
+address_b[5] => ram_block3a1.PORTBADDR5
+address_b[5] => ram_block3a2.PORTBADDR5
+address_b[5] => ram_block3a3.PORTBADDR5
+address_b[5] => ram_block3a4.PORTBADDR5
+address_b[5] => ram_block3a5.PORTBADDR5
+address_b[5] => ram_block3a6.PORTBADDR5
+address_b[5] => ram_block3a7.PORTBADDR5
+address_b[6] => ram_block3a0.PORTBADDR6
+address_b[6] => ram_block3a1.PORTBADDR6
+address_b[6] => ram_block3a2.PORTBADDR6
+address_b[6] => ram_block3a3.PORTBADDR6
+address_b[6] => ram_block3a4.PORTBADDR6
+address_b[6] => ram_block3a5.PORTBADDR6
+address_b[6] => ram_block3a6.PORTBADDR6
+address_b[6] => ram_block3a7.PORTBADDR6
+address_b[7] => ram_block3a0.PORTBADDR7
+address_b[7] => ram_block3a1.PORTBADDR7
+address_b[7] => ram_block3a2.PORTBADDR7
+address_b[7] => ram_block3a3.PORTBADDR7
+address_b[7] => ram_block3a4.PORTBADDR7
+address_b[7] => ram_block3a5.PORTBADDR7
+address_b[7] => ram_block3a6.PORTBADDR7
+address_b[7] => ram_block3a7.PORTBADDR7
+clock0 => ram_block3a0.CLK0
+clock0 => ram_block3a1.CLK0
+clock0 => ram_block3a2.CLK0
+clock0 => ram_block3a3.CLK0
+clock0 => ram_block3a4.CLK0
+clock0 => ram_block3a5.CLK0
+clock0 => ram_block3a6.CLK0
+clock0 => ram_block3a7.CLK0
+clock1 => ram_block3a0.CLK1
+clock1 => ram_block3a1.CLK1
+clock1 => ram_block3a2.CLK1
+clock1 => ram_block3a3.CLK1
+clock1 => ram_block3a4.CLK1
+clock1 => ram_block3a5.CLK1
+clock1 => ram_block3a6.CLK1
+clock1 => ram_block3a7.CLK1
+data_a[0] => ram_block3a0.PORTADATAIN
+data_a[1] => ram_block3a1.PORTADATAIN
+data_a[2] => ram_block3a2.PORTADATAIN
+data_a[3] => ram_block3a3.PORTADATAIN
+data_a[4] => ram_block3a4.PORTADATAIN
+data_a[5] => ram_block3a5.PORTADATAIN
+data_a[6] => ram_block3a6.PORTADATAIN
+data_a[7] => ram_block3a7.PORTADATAIN
+data_b[0] => ram_block3a0.PORTBDATAIN
+data_b[1] => ram_block3a1.PORTBDATAIN
+data_b[2] => ram_block3a2.PORTBDATAIN
+data_b[3] => ram_block3a3.PORTBDATAIN
+data_b[4] => ram_block3a4.PORTBDATAIN
+data_b[5] => ram_block3a5.PORTBDATAIN
+data_b[6] => ram_block3a6.PORTBDATAIN
+data_b[7] => ram_block3a7.PORTBDATAIN
+q_a[0] <= ram_block3a0.PORTADATAOUT
+q_a[1] <= ram_block3a1.PORTADATAOUT
+q_a[2] <= ram_block3a2.PORTADATAOUT
+q_a[3] <= ram_block3a3.PORTADATAOUT
+q_a[4] <= ram_block3a4.PORTADATAOUT
+q_a[5] <= ram_block3a5.PORTADATAOUT
+q_a[6] <= ram_block3a6.PORTADATAOUT
+q_a[7] <= ram_block3a7.PORTADATAOUT
+q_b[0] <= ram_block3a0.PORTBDATAOUT
+q_b[1] <= ram_block3a1.PORTBDATAOUT
+q_b[2] <= ram_block3a2.PORTBDATAOUT
+q_b[3] <= ram_block3a3.PORTBDATAOUT
+q_b[4] <= ram_block3a4.PORTBDATAOUT
+q_b[5] <= ram_block3a5.PORTBDATAOUT
+q_b[6] <= ram_block3a6.PORTBDATAOUT
+q_b[7] <= ram_block3a7.PORTBDATAOUT
+rden_a => ram_block3a0.PORTARE
+rden_a => ram_block3a1.PORTARE
+rden_a => ram_block3a2.PORTARE
+rden_a => ram_block3a3.PORTARE
+rden_a => ram_block3a4.PORTARE
+rden_a => ram_block3a5.PORTARE
+rden_a => ram_block3a6.PORTARE
+rden_a => ram_block3a7.PORTARE
+wren_a => ram_block3a0.PORTAWE
+wren_a => ram_block3a1.PORTAWE
+wren_a => ram_block3a2.PORTAWE
+wren_a => ram_block3a3.PORTAWE
+wren_a => ram_block3a4.PORTAWE
+wren_a => ram_block3a5.PORTAWE
+wren_a => ram_block3a6.PORTAWE
+wren_a => ram_block3a7.PORTAWE
+wren_b => ram_block3a0.PORTBWE
+wren_b => ram_block3a1.PORTBWE
+wren_b => ram_block3a2.PORTBWE
+wren_b => ram_block3a3.PORTBWE
+wren_b => ram_block3a4.PORTBWE
+wren_b => ram_block3a5.PORTBWE
+wren_b => ram_block3a6.PORTBWE
+wren_b => ram_block3a7.PORTBWE
+
+
+|CPUCircuit|ram1p:ram|altsyncram:altsyncram_component|altsyncram_e024:auto_generated|sld_mod_ram_rom:mgl_prim2
+tck_usr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tck
+address[0] <= ram_rom_addr_reg[0].DB_MAX_OUTPUT_PORT_TYPE
+address[1] <= ram_rom_addr_reg[1].DB_MAX_OUTPUT_PORT_TYPE
+address[2] <= ram_rom_addr_reg[2].DB_MAX_OUTPUT_PORT_TYPE
+address[3] <= ram_rom_addr_reg[3].DB_MAX_OUTPUT_PORT_TYPE
+address[4] <= ram_rom_addr_reg[4].DB_MAX_OUTPUT_PORT_TYPE
+address[5] <= ram_rom_addr_reg[5].DB_MAX_OUTPUT_PORT_TYPE
+address[6] <= ram_rom_addr_reg[6].DB_MAX_OUTPUT_PORT_TYPE
+address[7] <= ram_rom_addr_reg[7].DB_MAX_OUTPUT_PORT_TYPE
+enable_write <= enable_write.DB_MAX_OUTPUT_PORT_TYPE
+data_write[0] <= ram_rom_data_reg[0].DB_MAX_OUTPUT_PORT_TYPE
+data_write[1] <= ram_rom_data_reg[1].DB_MAX_OUTPUT_PORT_TYPE
+data_write[2] <= ram_rom_data_reg[2].DB_MAX_OUTPUT_PORT_TYPE
+data_write[3] <= ram_rom_data_reg[3].DB_MAX_OUTPUT_PORT_TYPE
+data_write[4] <= ram_rom_data_reg[4].DB_MAX_OUTPUT_PORT_TYPE
+data_write[5] <= ram_rom_data_reg[5].DB_MAX_OUTPUT_PORT_TYPE
+data_write[6] <= ram_rom_data_reg[6].DB_MAX_OUTPUT_PORT_TYPE
+data_write[7] <= ram_rom_data_reg[7].DB_MAX_OUTPUT_PORT_TYPE
+data_read[0] => ram_rom_data_reg.DATAB
+data_read[1] => ram_rom_data_reg.DATAB
+data_read[2] => ram_rom_data_reg.DATAB
+data_read[3] => ram_rom_data_reg.DATAB
+data_read[4] => ram_rom_data_reg.DATAB
+data_read[5] => ram_rom_data_reg.DATAB
+data_read[6] => ram_rom_data_reg.DATAB
+data_read[7] => ram_rom_data_reg.DATAB
+adapter_ready => ~NO_FANOUT~
+adapter_valid => ~NO_FANOUT~
+adapter_queue_size[0] => ~NO_FANOUT~
+adapter_queue_size[1] => ~NO_FANOUT~
+adapter_queue_size[2] => ~NO_FANOUT~
+adapter_queue_size[3] => ~NO_FANOUT~
+adapter_queue_size[4] => ~NO_FANOUT~
+adapter_reset <= <GND>
+sld_ready <= <GND>
+sld_valid <= <GND>
+clr_out <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_clr
+raw_tck => sld_jtag_endpoint_adapter:jtag_signal_adapter.raw_tck
+tdi => sld_jtag_endpoint_adapter:jtag_signal_adapter.tdi
+usr1 => sld_jtag_endpoint_adapter:jtag_signal_adapter.usr1
+jtag_state_cdr => sld_jtag_endpoint_adapter:jtag_signal_adapter.jtag_state_cdr
+jtag_state_sdr => sld_jtag_endpoint_adapter:jtag_signal_adapter.jtag_state_sdr
+jtag_state_e1dr => sld_jtag_endpoint_adapter:jtag_signal_adapter.jtag_state_e1dr
+jtag_state_udr => sld_jtag_endpoint_adapter:jtag_signal_adapter.jtag_state_udr
+jtag_state_uir => sld_jtag_endpoint_adapter:jtag_signal_adapter.jtag_state_uir
+clr => sld_jtag_endpoint_adapter:jtag_signal_adapter.clr
+ena => sld_jtag_endpoint_adapter:jtag_signal_adapter.ena
+ena => bypass_reg_out.ENA
+ir_in[0] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[0]
+ir_in[1] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[1]
+ir_in[2] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[2]
+ir_in[3] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[3]
+ir_in[4] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[4]
+ir_in[5] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[5]
+ir_in[6] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[6]
+ir_in[7] => sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_in[7]
+ir_out[0] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[0]
+ir_out[1] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[1]
+ir_out[2] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[2]
+ir_out[3] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[3]
+ir_out[4] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[4]
+ir_out[5] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[5]
+ir_out[6] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[6]
+ir_out[7] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out[7]
+tdo <= sld_jtag_endpoint_adapter:jtag_signal_adapter.tdo
+
+
+|CPUCircuit|ram1p:ram|altsyncram:altsyncram_component|altsyncram_e024:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter
+raw_tck => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.raw_tck
+raw_tms => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.raw_tms
+tdi => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.tdi
+vir_tdi => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.vir_tdi
+jtag_state_tlr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_tlr
+jtag_state_rti => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_rti
+jtag_state_sdrs => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sdrs
+jtag_state_cdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_cdr
+jtag_state_sdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sdr
+jtag_state_e1dr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e1dr
+jtag_state_pdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_pdr
+jtag_state_e2dr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e2dr
+jtag_state_udr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_udr
+jtag_state_sirs => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sirs
+jtag_state_cir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_cir
+jtag_state_sir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sir
+jtag_state_e1ir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e1ir
+jtag_state_pir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_pir
+jtag_state_e2ir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e2ir
+jtag_state_uir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_uir
+usr1 => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.usr1
+clr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.clr
+ena => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ena
+ir_in[0] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[0]
+ir_in[1] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[1]
+ir_in[2] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[2]
+ir_in[3] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[3]
+ir_in[4] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[4]
+ir_in[5] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[5]
+ir_in[6] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[6]
+ir_in[7] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[7]
+tdo <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.tdo
+ir_out[0] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[0]
+ir_out[1] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[1]
+ir_out[2] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[2]
+ir_out[3] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[3]
+ir_out[4] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[4]
+ir_out[5] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[5]
+ir_out[6] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[6]
+ir_out[7] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[7]
+adapted_tck <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tck
+adapted_tms <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tms
+adapted_tdi <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tdi
+adapted_vir_tdi <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_vir_tdi
+adapted_jtag_state_tlr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_tlr
+adapted_jtag_state_rti <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_rti
+adapted_jtag_state_sdrs <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sdrs
+adapted_jtag_state_cdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_cdr
+adapted_jtag_state_sdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sdr
+adapted_jtag_state_e1dr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e1dr
+adapted_jtag_state_pdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_pdr
+adapted_jtag_state_e2dr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e2dr
+adapted_jtag_state_udr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_udr
+adapted_jtag_state_sirs <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sirs
+adapted_jtag_state_cir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_cir
+adapted_jtag_state_sir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sir
+adapted_jtag_state_e1ir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e1ir
+adapted_jtag_state_pir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_pir
+adapted_jtag_state_e2ir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e2ir
+adapted_jtag_state_uir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_uir
+adapted_usr1 <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_usr1
+adapted_clr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_clr
+adapted_ena <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ena
+adapted_ir_in[0] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[0]
+adapted_ir_in[1] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[1]
+adapted_ir_in[2] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[2]
+adapted_ir_in[3] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[3]
+adapted_ir_in[4] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[4]
+adapted_ir_in[5] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[5]
+adapted_ir_in[6] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[6]
+adapted_ir_in[7] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[7]
+adapted_tdo => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tdo
+adapted_ir_out[0] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[0]
+adapted_ir_out[1] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[1]
+adapted_ir_out[2] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[2]
+adapted_ir_out[3] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[3]
+adapted_ir_out[4] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[4]
+adapted_ir_out[5] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[5]
+adapted_ir_out[6] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[6]
+adapted_ir_out[7] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[7]
+
+
+|CPUCircuit|ram1p:ram|altsyncram:altsyncram_component|altsyncram_e024:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst
+raw_tck => adapted_tck.DATAIN
+raw_tms => adapted_tms.DATAIN
+tdi => adapted_tdi.DATAIN
+vir_tdi => adapted_vir_tdi.DATAIN
+jtag_state_tlr => adapted_jtag_state_tlr.DATAIN
+jtag_state_rti => adapted_jtag_state_rti.DATAIN
+jtag_state_sdrs => adapted_jtag_state_sdrs.DATAIN
+jtag_state_cdr => adapted_jtag_state_cdr.DATAIN
+jtag_state_sdr => adapted_jtag_state_sdr.DATAIN
+jtag_state_e1dr => adapted_jtag_state_e1dr.DATAIN
+jtag_state_pdr => adapted_jtag_state_pdr.DATAIN
+jtag_state_e2dr => adapted_jtag_state_e2dr.DATAIN
+jtag_state_udr => adapted_jtag_state_udr.DATAIN
+jtag_state_sirs => adapted_jtag_state_sirs.DATAIN
+jtag_state_cir => adapted_jtag_state_cir.DATAIN
+jtag_state_sir => adapted_jtag_state_sir.DATAIN
+jtag_state_e1ir => adapted_jtag_state_e1ir.DATAIN
+jtag_state_pir => adapted_jtag_state_pir.DATAIN
+jtag_state_e2ir => adapted_jtag_state_e2ir.DATAIN
+jtag_state_uir => adapted_jtag_state_uir.DATAIN
+usr1 => adapted_usr1.DATAIN
+clr => adapted_clr.DATAIN
+ena => adapted_ena.DATAIN
+ir_in[0] => adapted_ir_in[0].DATAIN
+ir_in[1] => adapted_ir_in[1].DATAIN
+ir_in[2] => adapted_ir_in[2].DATAIN
+ir_in[3] => adapted_ir_in[3].DATAIN
+ir_in[4] => adapted_ir_in[4].DATAIN
+ir_in[5] => adapted_ir_in[5].DATAIN
+ir_in[6] => adapted_ir_in[6].DATAIN
+ir_in[7] => adapted_ir_in[7].DATAIN
+tdo <= adapted_tdo.DB_MAX_OUTPUT_PORT_TYPE
+ir_out[0] <= adapted_ir_out[0].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[1] <= adapted_ir_out[1].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[2] <= adapted_ir_out[2].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[3] <= adapted_ir_out[3].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[4] <= adapted_ir_out[4].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[5] <= adapted_ir_out[5].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[6] <= adapted_ir_out[6].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[7] <= adapted_ir_out[7].DB_MAX_OUTPUT_PORT_TYPE
+adapted_tck <= raw_tck.DB_MAX_OUTPUT_PORT_TYPE
+adapted_tms <= raw_tms.DB_MAX_OUTPUT_PORT_TYPE
+adapted_tdi <= tdi.DB_MAX_OUTPUT_PORT_TYPE
+adapted_vir_tdi <= vir_tdi.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_tlr <= jtag_state_tlr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_rti <= jtag_state_rti.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sdrs <= jtag_state_sdrs.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_cdr <= jtag_state_cdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sdr <= jtag_state_sdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e1dr <= jtag_state_e1dr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_pdr <= jtag_state_pdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e2dr <= jtag_state_e2dr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_udr <= jtag_state_udr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sirs <= jtag_state_sirs.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_cir <= jtag_state_cir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sir <= jtag_state_sir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e1ir <= jtag_state_e1ir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_pir <= jtag_state_pir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e2ir <= jtag_state_e2ir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_uir <= jtag_state_uir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_usr1 <= usr1.DB_MAX_OUTPUT_PORT_TYPE
+adapted_clr <= clr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_ena <= ena.DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[0] <= ir_in[0].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[1] <= ir_in[1].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[2] <= ir_in[2].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[3] <= ir_in[3].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[4] <= ir_in[4].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[5] <= ir_in[5].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[6] <= ir_in[6].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[7] <= ir_in[7].DB_MAX_OUTPUT_PORT_TYPE
+adapted_tdo => tdo.DATAIN
+adapted_ir_out[0] => ir_out[0].DATAIN
+adapted_ir_out[1] => ir_out[1].DATAIN
+adapted_ir_out[2] => ir_out[2].DATAIN
+adapted_ir_out[3] => ir_out[3].DATAIN
+adapted_ir_out[4] => ir_out[4].DATAIN
+adapted_ir_out[5] => ir_out[5].DATAIN
+adapted_ir_out[6] => ir_out[6].DATAIN
+adapted_ir_out[7] => ir_out[7].DATAIN
+
+
+|CPUCircuit|ram1p:ram|altsyncram:altsyncram_component|altsyncram_e024:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr
+ROM_DATA[0] => Mux3.IN131
+ROM_DATA[1] => Mux2.IN131
+ROM_DATA[2] => Mux1.IN131
+ROM_DATA[3] => Mux0.IN131
+ROM_DATA[4] => Mux3.IN127
+ROM_DATA[5] => Mux2.IN127
+ROM_DATA[6] => Mux1.IN127
+ROM_DATA[7] => Mux0.IN127
+ROM_DATA[8] => Mux3.IN123
+ROM_DATA[9] => Mux2.IN123
+ROM_DATA[10] => Mux1.IN123
+ROM_DATA[11] => Mux0.IN123
+ROM_DATA[12] => Mux3.IN119
+ROM_DATA[13] => Mux2.IN119
+ROM_DATA[14] => Mux1.IN119
+ROM_DATA[15] => Mux0.IN119
+ROM_DATA[16] => Mux3.IN115
+ROM_DATA[17] => Mux2.IN115
+ROM_DATA[18] => Mux1.IN115
+ROM_DATA[19] => Mux0.IN115
+ROM_DATA[20] => Mux3.IN111
+ROM_DATA[21] => Mux2.IN111
+ROM_DATA[22] => Mux1.IN111
+ROM_DATA[23] => Mux0.IN111
+ROM_DATA[24] => Mux3.IN107
+ROM_DATA[25] => Mux2.IN107
+ROM_DATA[26] => Mux1.IN107
+ROM_DATA[27] => Mux0.IN107
+ROM_DATA[28] => Mux3.IN103
+ROM_DATA[29] => Mux2.IN103
+ROM_DATA[30] => Mux1.IN103
+ROM_DATA[31] => Mux0.IN103
+ROM_DATA[32] => Mux3.IN99
+ROM_DATA[33] => Mux2.IN99
+ROM_DATA[34] => Mux1.IN99
+ROM_DATA[35] => Mux0.IN99
+ROM_DATA[36] => Mux3.IN95
+ROM_DATA[37] => Mux2.IN95
+ROM_DATA[38] => Mux1.IN95
+ROM_DATA[39] => Mux0.IN95
+ROM_DATA[40] => Mux3.IN91
+ROM_DATA[41] => Mux2.IN91
+ROM_DATA[42] => Mux1.IN91
+ROM_DATA[43] => Mux0.IN91
+ROM_DATA[44] => Mux3.IN87
+ROM_DATA[45] => Mux2.IN87
+ROM_DATA[46] => Mux1.IN87
+ROM_DATA[47] => Mux0.IN87
+ROM_DATA[48] => Mux3.IN83
+ROM_DATA[49] => Mux2.IN83
+ROM_DATA[50] => Mux1.IN83
+ROM_DATA[51] => Mux0.IN83
+ROM_DATA[52] => Mux3.IN79
+ROM_DATA[53] => Mux2.IN79
+ROM_DATA[54] => Mux1.IN79
+ROM_DATA[55] => Mux0.IN79
+ROM_DATA[56] => Mux3.IN75
+ROM_DATA[57] => Mux2.IN75
+ROM_DATA[58] => Mux1.IN75
+ROM_DATA[59] => Mux0.IN75
+ROM_DATA[60] => Mux3.IN71
+ROM_DATA[61] => Mux2.IN71
+ROM_DATA[62] => Mux1.IN71
+ROM_DATA[63] => Mux0.IN71
+ROM_DATA[64] => Mux3.IN67
+ROM_DATA[65] => Mux2.IN67
+ROM_DATA[66] => Mux1.IN67
+ROM_DATA[67] => Mux0.IN67
+ROM_DATA[68] => Mux3.IN63
+ROM_DATA[69] => Mux2.IN63
+ROM_DATA[70] => Mux1.IN63
+ROM_DATA[71] => Mux0.IN63
+ROM_DATA[72] => Mux3.IN59
+ROM_DATA[73] => Mux2.IN59
+ROM_DATA[74] => Mux1.IN59
+ROM_DATA[75] => Mux0.IN59
+ROM_DATA[76] => Mux3.IN55
+ROM_DATA[77] => Mux2.IN55
+ROM_DATA[78] => Mux1.IN55
+ROM_DATA[79] => Mux0.IN55
+ROM_DATA[80] => Mux3.IN51
+ROM_DATA[81] => Mux2.IN51
+ROM_DATA[82] => Mux1.IN51
+ROM_DATA[83] => Mux0.IN51
+ROM_DATA[84] => Mux3.IN47
+ROM_DATA[85] => Mux2.IN47
+ROM_DATA[86] => Mux1.IN47
+ROM_DATA[87] => Mux0.IN47
+TCK => WORD_SR[0].CLK
+TCK => WORD_SR[1].CLK
+TCK => WORD_SR[2].CLK
+TCK => WORD_SR[3].CLK
+TCK => word_counter[0].CLK
+TCK => word_counter[1].CLK
+TCK => word_counter[2].CLK
+TCK => word_counter[3].CLK
+TCK => word_counter[4].CLK
+SHIFT => word_counter.OUTPUTSELECT
+SHIFT => word_counter.OUTPUTSELECT
+SHIFT => word_counter.OUTPUTSELECT
+SHIFT => word_counter.OUTPUTSELECT
+SHIFT => word_counter.OUTPUTSELECT
+SHIFT => WORD_SR.OUTPUTSELECT
+SHIFT => WORD_SR.OUTPUTSELECT
+SHIFT => WORD_SR.OUTPUTSELECT
+SHIFT => WORD_SR.OUTPUTSELECT
+UPDATE => clear_signal.IN0
+USR1 => clear_signal.IN1
+ENA => word_counter.OUTPUTSELECT
+ENA => word_counter.OUTPUTSELECT
+ENA => word_counter.OUTPUTSELECT
+ENA => word_counter.OUTPUTSELECT
+ENA => word_counter.OUTPUTSELECT
+ENA => WORD_SR.OUTPUTSELECT
+ENA => WORD_SR.OUTPUTSELECT
+ENA => WORD_SR.OUTPUTSELECT
+ENA => WORD_SR.OUTPUTSELECT
+TDI => WORD_SR.DATAA
+TDO <= WORD_SR[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|MCtrl:MemCtrl
+address[0] => RAMAddr[0].DATAIN
+address[0] => ROMAddr[0].DATAIN
+address[1] => RAMAddr[1].DATAIN
+address[1] => ROMAddr[1].DATAIN
+address[2] => RAMAddr[2].DATAIN
+address[2] => ROMAddr[2].DATAIN
+address[3] => RAMAddr[3].DATAIN
+address[3] => ROMAddr[3].DATAIN
+address[4] => RAMAddr[4].DATAIN
+address[4] => ROMAddr[4].DATAIN
+address[5] => RAMAddr[5].DATAIN
+address[5] => ROMAddr[5].DATAIN
+address[6] => RAMAddr[6].DATAIN
+address[6] => ROMAddr[6].DATAIN
+address[7] => RAMAddr[7].DATAIN
+address[7] => ROMAddr[7].DATAIN
+address[8] => RAMAddr[8].DATAIN
+address[8] => ROMAddr[8].DATAIN
+address[9] => RAMAddr[9].DATAIN
+address[9] => ROMAddr[9].DATAIN
+address[10] => RAMAddr[10].DATAIN
+address[10] => ROMAddr[10].DATAIN
+address[11] => RAMAddr[11].DATAIN
+address[11] => ROMAddr[11].DATAIN
+address[12] => RAMAddr[12].DATAIN
+address[12] => ROMAddr[12].DATAIN
+address[13] => RAMAddr[13].DATAIN
+address[13] => ROMAddr[13].DATAIN
+address[14] => ROMAddr[14].DATAIN
+address[14] => RAMAddr[14].DATAIN
+address[14] => Equal0.IN0
+address[15] => ROMAddr[15].DATAIN
+address[15] => RAMAddr[15].DATAIN
+address[15] => Equal0.IN1
+address[15] => datain[0].OUTPUTSELECT
+address[15] => datain[1].OUTPUTSELECT
+address[15] => datain[2].OUTPUTSELECT
+address[15] => datain[3].OUTPUTSELECT
+address[15] => datain[4].OUTPUTSELECT
+address[15] => datain[5].OUTPUTSELECT
+address[15] => datain[6].OUTPUTSELECT
+address[15] => datain[7].OUTPUTSELECT
+address[15] => datain[7].IN1
+address[15] => ROMCS.DATAIN
+dataout[0] => RAMDataTo[0].DATAIN
+dataout[1] => RAMDataTo[1].DATAIN
+dataout[2] => RAMDataTo[2].DATAIN
+dataout[3] => RAMDataTo[3].DATAIN
+dataout[4] => RAMDataTo[4].DATAIN
+dataout[5] => RAMDataTo[5].DATAIN
+dataout[6] => RAMDataTo[6].DATAIN
+dataout[7] => RAMDataTo[7].DATAIN
+datain[0] <= datain[0].DB_MAX_OUTPUT_PORT_TYPE
+datain[1] <= datain[1].DB_MAX_OUTPUT_PORT_TYPE
+datain[2] <= datain[2].DB_MAX_OUTPUT_PORT_TYPE
+datain[3] <= datain[3].DB_MAX_OUTPUT_PORT_TYPE
+datain[4] <= datain[4].DB_MAX_OUTPUT_PORT_TYPE
+datain[5] <= datain[5].DB_MAX_OUTPUT_PORT_TYPE
+datain[6] <= datain[6].DB_MAX_OUTPUT_PORT_TYPE
+datain[7] <= datain[7].DB_MAX_OUTPUT_PORT_TYPE
+read => ROMRead.DATAIN
+read => datain.IN1
+read => RAMRead.DATAIN
+write => RAMDataTo.IN1
+write => RAMWrite.DATAIN
+RAMAddr[0] <= address[0].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[1] <= address[1].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[2] <= address[2].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[3] <= address[3].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[4] <= address[4].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[5] <= address[5].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[6] <= address[6].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[7] <= address[7].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[8] <= address[8].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[9] <= address[9].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[10] <= address[10].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[11] <= address[11].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[12] <= address[12].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[13] <= address[13].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[14] <= address[14].DB_MAX_OUTPUT_PORT_TYPE
+RAMAddr[15] <= address[15].DB_MAX_OUTPUT_PORT_TYPE
+RAMDataTo[0] <= RAMDataTo[0].DB_MAX_OUTPUT_PORT_TYPE
+RAMDataTo[1] <= RAMDataTo[1].DB_MAX_OUTPUT_PORT_TYPE
+RAMDataTo[2] <= RAMDataTo[2].DB_MAX_OUTPUT_PORT_TYPE
+RAMDataTo[3] <= RAMDataTo[3].DB_MAX_OUTPUT_PORT_TYPE
+RAMDataTo[4] <= RAMDataTo[4].DB_MAX_OUTPUT_PORT_TYPE
+RAMDataTo[5] <= RAMDataTo[5].DB_MAX_OUTPUT_PORT_TYPE
+RAMDataTo[6] <= RAMDataTo[6].DB_MAX_OUTPUT_PORT_TYPE
+RAMDataTo[7] <= RAMDataTo[7].DB_MAX_OUTPUT_PORT_TYPE
+RAMDataFrom[0] => datain[0].DATAA
+RAMDataFrom[1] => datain[1].DATAA
+RAMDataFrom[2] => datain[2].DATAA
+RAMDataFrom[3] => datain[3].DATAA
+RAMDataFrom[4] => datain[4].DATAA
+RAMDataFrom[5] => datain[5].DATAA
+RAMDataFrom[6] => datain[6].DATAA
+RAMDataFrom[7] => datain[7].DATAA
+RAMRead <= read.DB_MAX_OUTPUT_PORT_TYPE
+RAMWrite <= write.DB_MAX_OUTPUT_PORT_TYPE
+RAMCS <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[0] <= address[0].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[1] <= address[1].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[2] <= address[2].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[3] <= address[3].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[4] <= address[4].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[5] <= address[5].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[6] <= address[6].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[7] <= address[7].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[8] <= address[8].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[9] <= address[9].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[10] <= address[10].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[11] <= address[11].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[12] <= address[12].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[13] <= address[13].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[14] <= address[14].DB_MAX_OUTPUT_PORT_TYPE
+ROMAddr[15] <= address[15].DB_MAX_OUTPUT_PORT_TYPE
+ROMData[0] => datain[0].DATAB
+ROMData[1] => datain[1].DATAB
+ROMData[2] => datain[2].DATAB
+ROMData[3] => datain[3].DATAB
+ROMData[4] => datain[4].DATAB
+ROMData[5] => datain[5].DATAB
+ROMData[6] => datain[6].DATAB
+ROMData[7] => datain[7].DATAB
+ROMRead <= read.DB_MAX_OUTPUT_PORT_TYPE
+ROMCS <= address[15].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|Clock50:CLK50
+clock => tmp.CLK
+clock => count[0].CLK
+clock => count[1].CLK
+clock => count[2].CLK
+clock => count[3].CLK
+clock => count[4].CLK
+clock => count[5].CLK
+clock => count[6].CLK
+clock => count[7].CLK
+clock => count[8].CLK
+clock => count[9].CLK
+clock => count[10].CLK
+clock => count[11].CLK
+clock => count[12].CLK
+clock => count[13].CLK
+clock => count[14].CLK
+clock => count[15].CLK
+clock => count[16].CLK
+clock => count[17].CLK
+clock => count[18].CLK
+clock => count[19].CLK
+clock => count[20].CLK
+clock => count[21].CLK
+clock => count[22].CLK
+clock => count[23].CLK
+clock => count[24].CLK
+clock => count[25].CLK
+clock => count[26].CLK
+clock => count[27].CLK
+clock => count[28].CLK
+clock => count[29].CLK
+clock => count[30].CLK
+clock => count[31].CLK
+reset => ~NO_FANOUT~
+c50 <= tmp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CPUCircuit|ClockDelay:CLKD
+clock => tmp.CLK
+clock => count[0].CLK
+clock => count[1].CLK
+clock => count[2].CLK
+clock => count[3].CLK
+clock => count[4].CLK
+clock => count[5].CLK
+clock => count[6].CLK
+clock => count[7].CLK
+clock => count[8].CLK
+clock => count[9].CLK
+clock => count[10].CLK
+clock => count[11].CLK
+clock => count[12].CLK
+clock => count[13].CLK
+clock => count[14].CLK
+clock => count[15].CLK
+clock => count[16].CLK
+clock => count[17].CLK
+clock => count[18].CLK
+clock => count[19].CLK
+clock => count[20].CLK
+clock => count[21].CLK
+clock => count[22].CLK
+clock => count[23].CLK
+clock => count[24].CLK
+clock => count[25].CLK
+reset => ~NO_FANOUT~
+rate[0] => Equal0.IN39
+rate[1] => Equal0.IN38
+rate[2] => Equal0.IN37
+rate[3] => Equal0.IN36
+rate[4] => Equal0.IN35
+rate[5] => Equal0.IN34
+rate[6] => Equal0.IN33
+rate[7] => Equal0.IN32
+rate[8] => Equal0.IN31
+rate[9] => Equal0.IN30
+rate[10] => Equal0.IN29
+rate[11] => Equal0.IN28
+rate[12] => Equal0.IN27
+rate[13] => Equal0.IN26
+rate[14] => Equal0.IN25
+rate[15] => Equal0.IN24
+rate[16] => Equal0.IN23
+rate[17] => Equal0.IN22
+rate[18] => Equal0.IN21
+rate[19] => Equal0.IN20
+rate[20] => Equal0.IN19
+rate[21] => Equal0.IN18
+rate[22] => Equal0.IN17
+rate[23] => Equal0.IN16
+rate[24] => Equal0.IN15
+rate[25] => Equal0.IN14
+rate[26] => Equal0.IN6
+rate[27] => Equal0.IN5
+rate[28] => Equal0.IN4
+rate[29] => Equal0.IN3
+rate[30] => Equal0.IN2
+rate[31] => Equal0.IN1
+clkout <= tmp.DB_MAX_OUTPUT_PORT_TYPE
+
+
