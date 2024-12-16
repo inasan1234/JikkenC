@@ -1182,7 +1182,7 @@ component Shifter1
     a     : in  std_logic_vector(7 downto 0);
     mode  : in  std_logic_vector(1 downto 0);
     fout  : out std_logic_vector(7 downto 0);
-    cout  ; out std_logic;
+    cout  : out std_logic;
   );
 end component;
 
@@ -1191,7 +1191,7 @@ component Shifter2
     a     : in  std_logic_vector(7 downto 0);
     mode  : in  std_logic_vector(1 downto 0);
     fout  : out std_logic_vector(7 downto 0);
-    cout  ; out std_logic;
+    cout  : out std_logic;
   );
 end component;
 
@@ -1200,70 +1200,76 @@ component Shifter4
     a     : in  std_logic_vector(7 downto 0);
     mode  : in  std_logic_vector(1 downto 0);
     fout  : out std_logic_vector(7 downto 0);
-    cout  ; out std_logic;
+    cout  : out std_logic;
   );
 end component;
 
-signal shift       : std_logic_vector(7 downto 0);
-signal not_shift   : std_logic_vector(7 downto 0);
-signal result_tmp  : std_logic_vector(7 downto 0);
+signal shift1      : std_logic_vector(7 downto 0);
+signal not_shift1  : std_logic_vector(7 downto 0);
+signal shift2      : std_logic_vector(7 downto 0);
+signal not_shift2  : std_logic_vector(7 downto 0);
+signal shift4      : std_logic_vector(7 downto 0);
+signal not_shift4  : std_logic_vector(7 downto 0);
+signal result_tmp1 : std_logic_vector(7 downto 0);
+signal result_tmp2 : std_logic_vector(7 downto 0);
+signal result      : std_logic_vector(7 downto 0);
 signal cout_tmp1   : std_logic;
 signal cout_tmp2   : std_logic;
 signal cout_tmp4   : std_logic;
 
 begin
-not_shift <= a;
+not_shift1 <= a;
 
 shifter1 : Shifter1
   port map (
     a    => a,
     mode => mode,
-    fout => shift,
+    fout => shift1,
     cout => cout_tmp1
   );
 
-result_tmp <= shift       when c(0) = '1'
-                          else
-              not_shift   when c(0) = '0'
-                          else
-              "XXXXXXXX";
+result_tmp1 <=  shift1      when c(0) = '1'
+                            else
+                not_shift1  when c(0) = '0'
+                            else
+                "XXXXXXXX";
 
-not_shift <= result_tmp;
+not_shift2 <= result_tmp1;
 
 shifter2 : Shifter2
   port map (
-    a    => result_tmp,
+    a    => result_tmp1,
     mode => mode,
-    fout => shift,
+    fout => shift2,
     cout => cout_tmp2
   );
 
-result_tmp <= shift       when c(1) = '1'
-                          else
-              not_shift   when c(1) = '0'
-                          else
-              "XXXXXXXX";
+result_tmp2 <=  shift2      when c(1) = '1'
+                            else
+                not_shift2  when c(1) = '0'
+                            else
+                "XXXXXXXX";
 
-not_shift <= result_tmp;
+not_shift4 <= result_tmp2;
 
 shifter4 : Shifter4
   port map (
-    a    => result_tmp,
+    a    => result_tmp2,
     mode => mode,
-    fout => shift,
+    fout => shift4,
     cout => cout_tmp4
   );
 
-result_tmp <= shift       when c(2) = '1'
-                          else
-              not_shift   when c(2) = '0'
-                          else
-              "XXXXXXXX";
+result <= shift4      when c(2) = '1'
+                      else
+          not_shift4  when c(2) = '0'
+                      else
+          "XXXXXXXX";
 
 
-fout <= result_tmp;
+fout <= result;
 
-zout <= '1' when (result_tmp = "00000000")
+zout <= '1' when (result = "00000000")
             else
         '0';
 
