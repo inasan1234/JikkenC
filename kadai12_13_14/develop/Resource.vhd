@@ -246,6 +246,32 @@ begin
 end logic;
 
 
+--------------------------------
+-- 1bit Multiplexer in 2      --
+--                            --
+--          (c) Ryota INAGAKI --
+--                 2024/12/17 --
+--------------------------------
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity Mux2x01 is
+  port (
+    a   : in  std_logic; 
+    b   : in  std_logic;
+    sel : in  std_logic;
+    q   : out std_logic
+  ); 
+end Mux2x01;
+
+architecture logic of Mux2x01 is
+begin
+  q <= a when sel = '0' else
+       b ;
+end logic;
+
+
+
 
 --------------------------------
 -- 8bit Multiplexer in 2      --
@@ -1008,10 +1034,10 @@ use IEEE.std_logic_1164.all;
 
 entity Shifter1 is
   port (
-    a     : in  std_logic_vector(7 downto 0)
-    mode  : in  std_logic_vector(1 downto 0)
-    fout  : out std_logic_vector(7 downto 0)
-    cout  : out std_logic;
+    a     : in  std_logic_vector(7 downto 0);
+    mode  : in  std_logic_vector(1 downto 0);
+    fout  : out std_logic_vector(7 downto 0);
+    cout  : out std_logic
   );
 end Shifter1;
 
@@ -1061,10 +1087,10 @@ use IEEE.std_logic_1164.all;
 
 entity Shifter2 is
   port (
-    a     : in  std_logic_vector(7 downto 0)
-    mode  : in  std_logic_vector(1 downto 0)
-    fout  : out std_logic_vector(7 downto 0)
-    cout  : out std_logic;
+    a     : in  std_logic_vector(7 downto 0);
+    mode  : in  std_logic_vector(1 downto 0);
+    fout  : out std_logic_vector(7 downto 0);
+    cout  : out std_logic
   );
 end Shifter2;
 
@@ -1115,10 +1141,10 @@ use IEEE.std_logic_1164.all;
 
 entity Shifter4 is
   port (
-    a     : in  std_logic_vector(7 downto 0)
-    mode  : in  std_logic_vector(1 downto 0)
-    fout  : out std_logic_vector(7 downto 0)
-    cout  : out std_logic;
+    a     : in  std_logic_vector(7 downto 0);
+    mode  : in  std_logic_vector(1 downto 0);
+    fout  : out std_logic_vector(7 downto 0);
+    cout  : out std_logic
   );
 end Shifter4;
 
@@ -1169,12 +1195,12 @@ use IEEE.std_logic_1164.all;
 
 entity Shifter is
   port (
-    a     : in  std_logic_vector(7 downto 0)
-    c     : in  std_logic_vector(7 downto 0)
-    mode  : in  std_logic_vector(1 downto 0)
-    fout  : out std_logic_vector(7 downto 0)
+    a     : in  std_logic_vector(7 downto 0);
+    b     : in  std_logic_vector(7 downto 0);
+    mode  : in  std_logic_vector(1 downto 0);
+    fout  : out std_logic_vector(7 downto 0);
     cout  : out std_logic;
-    zout  : out std_logic;
+    zout  : out std_logic
   );
 end Shifter;
 
@@ -1184,7 +1210,7 @@ component Shifter1
     a     : in  std_logic_vector(7 downto 0);
     mode  : in  std_logic_vector(1 downto 0);
     fout  : out std_logic_vector(7 downto 0);
-    cout  : out std_logic;
+    cout  : out std_logic
   );
 end component;
 
@@ -1193,7 +1219,7 @@ component Shifter2
     a     : in  std_logic_vector(7 downto 0);
     mode  : in  std_logic_vector(1 downto 0);
     fout  : out std_logic_vector(7 downto 0);
-    cout  : out std_logic;
+    cout  : out std_logic
   );
 end component;
 
@@ -1202,7 +1228,7 @@ component Shifter4
     a     : in  std_logic_vector(7 downto 0);
     mode  : in  std_logic_vector(1 downto 0);
     fout  : out std_logic_vector(7 downto 0);
-    cout  : out std_logic;
+    cout  : out std_logic
   );
 end component;
 
@@ -1230,9 +1256,9 @@ shifter1 : Shifter1
     cout => cout_tmp1
   );
 
-result_tmp1 <=  shift1      when c(0) = '1'
+result_tmp1 <=  shift1      when b(0) = '1'
                             else
-                not_shift1  when c(0) = '0'
+                not_shift1  when b(0) = '0'
                             else
                 "XXXXXXXX";
 
@@ -1246,9 +1272,9 @@ shifter2 : Shifter2
     cout => cout_tmp2
   );
 
-result_tmp2 <=  shift2      when c(1) = '1'
+result_tmp2 <=  shift2      when b(1) = '1'
                             else
-                not_shift2  when c(1) = '0'
+                not_shift2  when b(1) = '0'
                             else
                 "XXXXXXXX";
 
@@ -1262,9 +1288,9 @@ shifter4 : Shifter4
     cout => cout_tmp4
   );
 
-result <= shift4      when c(2) = '1'
+result <= shift4      when b(2) = '1'
                       else
-          not_shift4  when c(2) = '0'
+          not_shift4  when b(2) = '0'
                       else
           "XXXXXXXX";
 
@@ -1275,11 +1301,11 @@ zout <= '1' when (result = "00000000")
             else
         '0';
 
-cout <= cout_tmp4 when c(2) = '1'
+cout <= cout_tmp4 when b(2) = '1'
                   else
-        cout_tmp2 when c(2) = '0' and c(1) = '1'
+        cout_tmp2 when b(2) = '0' and b(1) = '1'
                   else
-        cout_tmp1 when c(2) = '0' and c(1) = '0' and c(0) = '1'
+        cout_tmp1 when b(2) = '0' and b(1) = '0' and b(0) = '1'
                   else
         '0';
 
