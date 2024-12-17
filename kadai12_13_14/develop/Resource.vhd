@@ -455,7 +455,7 @@ end rtl;
 -- 8 bit ALU                  --
 --                            --
 --          (c) Ryota INAGAKI --
---                 2024/10/07 --
+--                 2024/12/17 --
 --                            --
 --------------------------------
 
@@ -470,11 +470,11 @@ end rtl;
 -- '0100' : not a             --
 -- '0101' : a + 1             --
 -- '0110' : a - 1             --
--- '0111' : undefined         --
+-- '0111' : a (+ 0)           --
 -- '1000' : not b             --
 -- '1001' : b + 1             --
 -- '1010' : b - 1             --
--- '1011' : undefined         --
+-- '1011' : b (+ 0)           --
 --                            --
 --------------------------------
 
@@ -528,7 +528,7 @@ inA <= a          when mode = "0000"  -- (a + b)
                       else
        a          when mode = "0110"  -- (a - 1)
                       else
-       "XXXXXXXX" when mode = "0111"  -- (undefined)
+       a          when mode = "0111"  -- (a (+ 0))
                       else
        "00000000" when mode = "1000"  -- (not b)
                       else
@@ -536,7 +536,7 @@ inA <= a          when mode = "0000"  -- (a + b)
                       else
        "11111111" when mode = "1010"  -- (b - 1)
                       else
-       "XXXXXXXX" when mode = "1011"  -- (undefined)
+       "00000000" when mode = "1011"  -- (b (+ 0))
                       else
        "XXXXXXXX";
 
@@ -554,7 +554,7 @@ inB <= b          when mode = "0000"  -- (a + b)
                       else
        "11111111" when mode = "0110"  -- (a - 1)
                       else
-       "XXXXXXXX" when mode = "0111"  -- (undefined)
+       "00000000" when mode = "0111"  -- (a (+ 0))
                       else
        b          when mode = "1000"  -- (not b)
                       else
@@ -562,10 +562,10 @@ inB <= b          when mode = "0000"  -- (a + b)
                       else
        b          when mode = "1010"  -- (b - 1)
                       else
-       "XXXXXXXX" when mode = "1011"  -- (undefined)
+       b          when mode = "1011"  -- (b (+ 0))
                       else
        "XXXXXXXX";
-	            
+
 cin_tmp <= '1' when mode = "0001" else cin;
 
 adder : RCAdder08
@@ -599,8 +599,10 @@ result <= result_adder when mode = "0000" or -- (a + b)
                             mode = "0001" or -- (a - b)
                             mode = "0101" or -- (a + 1)
                             mode = "0110" or -- (a - 1)
+                            mode = "0111" or -- (a (+ 0))
                             mode = "1001" or -- (b + 1)
-                            mode = "1010"    -- (b - 1)
+                            mode = "1010" or -- (b - 1)
+                            mode = "1011"    -- (b (+ 0))
                        else
           result_logic;
                   

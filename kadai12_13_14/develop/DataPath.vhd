@@ -80,7 +80,7 @@ component Register16in2
     q     : out std_logic_vector(15 downto 0)
   );
 end component;
- 
+
 component ALU08
   port (
     a       : in  std_logic_vector(7 downto 0);
@@ -107,7 +107,7 @@ component Counter16
 end component;
 
 component mux2x08
-   port (
+  port (
     a   : in  std_logic_vector(7 downto 0);
     b   : in  std_logic_vector(7 downto 0);
     sel : in  std_logic;
@@ -121,7 +121,7 @@ component mux2x16
     b   : in  std_logic_vector(15 downto 0);
     sel : in  std_logic;
     q   : out std_logic_vector(15 downto 0)
-   );
+  );
 end component;
 
 component mux4x08
@@ -132,7 +132,7 @@ component mux4x08
     d   : in  std_logic_vector(7 downto 0);
     sel : in  std_logic_vector(1 downto 0);
     q   : out std_logic_vector(7 downto 0)
-   );
+  );
 end component;
 
 signal qRegA      : std_logic_vector(7 downto 0);
