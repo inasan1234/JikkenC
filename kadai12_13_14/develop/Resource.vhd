@@ -1248,7 +1248,7 @@ signal cout_tmp4   : std_logic;
 begin
 not_shift1 <= a;
 
-shifter1 : Shifter1
+sft1 : Shifter1
   port map (
     a    => a,
     mode => mode,
@@ -1264,7 +1264,7 @@ result_tmp1 <=  shift1      when b(0) = '1'
 
 not_shift2 <= result_tmp1;
 
-shifter2 : Shifter2
+sft2 : Shifter2
   port map (
     a    => result_tmp1,
     mode => mode,
@@ -1280,7 +1280,7 @@ result_tmp2 <=  shift2      when b(1) = '1'
 
 not_shift4 <= result_tmp2;
 
-shifter4 : Shifter4
+sft4 : Shifter4
   port map (
     a    => result_tmp2,
     mode => mode,

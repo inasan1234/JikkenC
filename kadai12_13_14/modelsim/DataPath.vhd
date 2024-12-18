@@ -402,7 +402,7 @@ Bout <= qRegB;  -- added for debug on FPGA
 --          (c) Ryota INAGAKI --
 --                 2024/12/17 --
 --------------------------------
-Shifter : Shifter
+Sftr : Shifter
   port map (
     a     => qRegA,
     b     => qRegC,

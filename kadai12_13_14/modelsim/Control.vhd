@@ -391,7 +391,7 @@ cJCintE <= '1' when (qJCintB = "10" and irout(7 downto 3) = "11110") else -- STD
            '1' when (qJCintB = "10" and irout(7 downto 2) = "011100") else -- SLL SRL SLA SRA
            '0';
       
-cJCintF <= '1' when (qJCintB = "10" and irout(7 downto 5) = "011") else -- JP
+cJCintF <= '1' when (qJCintB = "10" and irout(7 downto 4) = "0110") else -- JP
            '1' when (qJCintB = "10" and irout(7 downto 4) = "0101" and ZeroF = '1') else -- JPZ(Z=1)
            '1' when (qJCintB = "10" and irout(7 downto 4) = "0100" and CarryF = '1') else -- JPC(C=1)
            '1' when (qJCintB = "10" and irout(7 downto 3) = "11111") else -- STDI
@@ -427,17 +427,17 @@ loadFC    <= '1' when (qJCintD = '1' and irout(7 downto 1) = "1000000") else -- 
              '1' when (qJCintE = "10" and irout(7 downto 2) = "011100") else -- SLL SRL SLA SRA
              '0';
 
-loadhMB   <= '1' when (qJCintF = "011" and irout(7 downto 5) = "011") else -- JP
+loadhMB   <= '1' when (qJCintF = "011" and irout(7 downto 4) = "0110") else -- JP
              '1' when (qJCintF = "011" and irout(7 downto 4) = "0101" and ZeroF = '1') else -- JPZ(Z=1)
              '1' when (qJCintF = "011" and irout(7 downto 4) = "0100" and CarryF = '1') else -- JPC(C=1)
              '0';      
         
-loadlMB   <= '1' when (qJCintF = "110" and irout(7 downto 5) = "011") else -- JP
+loadlMB   <= '1' when (qJCintF = "110" and irout(7 downto 4) = "0110") else -- JP
              '1' when (qJCintF = "110" and irout(7 downto 4) = "0101" and ZeroF = '1') else -- JPZ(Z=1)
              '1' when (qJCintF = "110" and irout(7 downto 4) = "0100" and CarryF = '1') else -- JPC(C=1)
              '0';                                
 
-loadIP    <= '1' when (qJCintF = "100" and irout(7 downto 5) = "011") else -- JP
+loadIP    <= '1' when (qJCintF = "100" and irout(7 downto 4) = "0110") else -- JP
              '1' when (qJCintF = "100" and irout(7 downto 4) = "0101" and ZeroF = '1') else -- JPZ(Z=1)
              '1' when (qJCintF = "100" and irout(7 downto 4) = "0100" and CarryF = '1') else -- JPC(C=1)
              '0';  
